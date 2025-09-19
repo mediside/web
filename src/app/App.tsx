@@ -1,4 +1,5 @@
-import { useTranslation, Button, HStack } from '@shared'
+import { useTranslation, Button, HStack, Box } from '@shared'
+import { Topbar } from '@widgets'
 
 export const App: FC = () => {
   const t = {
@@ -6,7 +7,8 @@ export const App: FC = () => {
   }
 
   return (
-    <div>
+    <Box>
+      <Topbar />
       <h1>{t.common('product')}</h1>
       <HStack>
         <Button color="darkblue" background="cyan.400">
@@ -14,6 +16,6 @@ export const App: FC = () => {
         </Button>
         <Button borderRadius="xl">Click me!</Button>
       </HStack>
-    </div>
+    </Box>
   )
 }

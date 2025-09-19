@@ -1,2 +1,2 @@
 export { ThemeProvider } from './theme-provider'
-export { Button, HStack } from '@chakra-ui/react'
+export { Button, HStack, Box, Center, Heading } from '@chakra-ui/react'
