@@ -7,7 +7,7 @@ export const Topbar: FC = () => {
 
   return (
     <Center>
-      <Box bg="white" shadow="md" rounded="2xl" w="full" m="2" p="2" h="12">
+      <Box bg="gray.contrast" shadow="md" rounded="2xl" w="full" mt={1.5} mb={6} p={2} h={12}>
         <Heading>{t.common('product')}</Heading>
       </Box>
     </Center>

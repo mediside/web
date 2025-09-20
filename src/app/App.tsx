@@ -4,7 +4,7 @@ import { Router } from './Router'
 
 export const App: FC = () => {
   return (
-    <Box>
+    <Box bg="#f8f9fa" h="100vh" px={2}>
       <Topbar />
       <Router />
     </Box>
