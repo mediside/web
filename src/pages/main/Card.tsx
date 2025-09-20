@@ -11,12 +11,12 @@ export const Card: FC<PropsWithChildren & CardProps> = ({ children, h, bg, onCli
   return (
     <Stack
       cursor="pointer"
-      _hover={{ shadow: 'xs' }}
+      _hover={{ shadow: 'uiHover' }}
       transition="all 0.2s ease-in-out"
       gap={8}
-      rounded="2xl"
-      shadow="sm"
-      p="3"
+      rounded="4xl"
+      shadow="ui"
+      p="8"
       h={h}
       bg={bg}
       onClick={onClick}

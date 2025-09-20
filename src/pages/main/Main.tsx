@@ -10,12 +10,14 @@ export const Main: FC = () => {
     <Center>
       <Stack gap={10}>
         <Grid gap={6} templateColumns={{ md: '1fr 300px' }}>
-          <Card h={300} bg="blue.subtle">
-            <Heading color="blue.fg">{t('titles.classify')}</Heading>
-            <Text color="blue.solid">{t('paragraphs.classify')}</Text>
+          <Card h={300} bg="gray.contrast">
+            <Heading size="4xl" color="teal.fg">
+              {t('titles.classify')}
+            </Heading>
+            <Text color="teal.solid">{t('paragraphs.classify')}</Text>
           </Card>
           <Card bg="gray.contrast" onClick={() => navigate(RoutePath.About)}>
-            <Heading>{t('titles.about')}</Heading>
+            <Heading size="4xl">{t('titles.about')}</Heading>
             <Text color="fg.subtle">{t('paragraphs.about')}</Text>
           </Card>
         </Grid>
@@ -27,8 +29,8 @@ export const Main: FC = () => {
           <Separator flex="1" size="md" />
         </HStack>
         <Grid gap={6} templateColumns={{ md: '1fr 1fr' }}>
-          <Skeleton h={{ base: 200, md: 400 }} rounded="2xl" />
-          <Skeleton h={{ base: 200, md: 400 }} rounded="2xl" />
+          <Skeleton shadow="ui" h={{ base: 200, md: 400 }} rounded="4xl" />
+          <Skeleton shadow="ui" h={{ base: 200, md: 400 }} rounded="4xl" />
         </Grid>
       </Stack>
     </Center>
