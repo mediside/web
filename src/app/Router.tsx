@@ -1,4 +1,4 @@
-import { About, Main } from '@pages'
+import { About, Main, Research } from '@pages'
 import { Box, RoutePath } from '@shared'
 import { Route } from 'wouter'
 
@@ -10,6 +10,9 @@ export const Router: FC = () => {
       </Route>
       <Route path={RoutePath.About}>
         <About />
+      </Route>
+      <Route path={RoutePath.Research}>
+        <Research />
       </Route>
     </Box>
   )

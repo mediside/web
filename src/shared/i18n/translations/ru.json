@@ -16,6 +16,13 @@
       "labels": {
         "research": "ваши исследования:"
       }
+    },
+    "research": {
+      "titles": {
+        "research": "Исследование",
+        "statistics": "Статистика",
+        "report": "Отчет"
+      }
     }
   }
 }
