@@ -16,7 +16,9 @@ export const ResearchCard: FC<ResearchCardProps> = ({ research }) => {
         <ResearchTitle title={research.title} num={research.num} />
         <Text color="fg.subtle">#{research.num}</Text>
       </HStack>
-      <Text fontSize="md">{research.createdAt.toLocaleString()}</Text>
+      <Text color="fg.muted" fontSize="md">
+        {research.createdAt.toLocaleString()}
+      </Text>
     </Card>
   )
 }

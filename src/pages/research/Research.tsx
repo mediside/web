@@ -1,22 +1,33 @@
-import { Flex, Heading, RoutePath, Stack, Text, useTranslation } from '@shared'
+import { ResearchTitle, useCurrentResearch } from '@entities'
+import { Button, Flex, Heading, HStack, RoutePath, Skeleton, Stack, Text, useTranslation } from '@shared'
+import { useEffect } from 'react'
 import { useLocation, useParams } from 'wouter'
+import { DicomArea } from './DicomArea'
 
+// TODO: icons
 type WithId = { id: string }
 
 export const Research: FC = () => {
   const t = useTranslation('pages.research')
   const { id } = useParams<WithId>()
-
   const [, navigate] = useLocation()
 
-  console.log(id)
-  // TODO: breakpoints for mobile
-  // TODO: icons
+  const { get, close, research } = useCurrentResearch()
+
+  useEffect(() => {
+    get.fetch(id)
+
+    return close
+  }, [])
+
+  const isLoading = !research || get.pending
+
   return (
-    <Flex gap={6} h="calc(100vh - 80px)">
+    <Flex gap={6} h="calc(100vh - 80px)" direction={{ base: 'column', lg: 'row' }}>
       <Flex flex="33%" direction="column" gap={6}>
         <Flex gap={6}>
-          <Stack
+          <HStack
+            justify="center"
             transition="all 0.2s ease-in-out"
             cursor="pointer"
             _hover={{ shadow: 'uiHover' }}
@@ -27,26 +38,47 @@ export const Research: FC = () => {
             shadow="ui"
             onClick={() => navigate(RoutePath.Main)}
           >
-            {'<'}
-          </Stack>
-          <Stack bg="gray.contrast" flex={1} p={6} rounded="2xl" shadow="ui">
-            <Heading>{t('titles.research')}</Heading>
-            <Text color="fg.subtle">{new Date().toLocaleString()}</Text>
-          </Stack>
+            <Heading size="3xl">{'<'}</Heading>
+          </HStack>
+          {isLoading ? (
+            <Skeleton flex={1} shadow="ui" rounded="2xl" />
+          ) : (
+            <Stack bg="gray.contrast" flex={1} p={6} rounded="2xl" shadow="ui">
+              <ResearchTitle num={research.num} title={research.title} />
+              <Text color="fg.muted">{research.createdAt.toLocaleString()}</Text>
+            </Stack>
+          )}
         </Flex>
-
-        <Stack flex={1} bg="gray.contrast" p={6} rounded="2xl" shadow="ui">
-          <Heading>{t('titles.statistics')}</Heading>
-          <Text color="fg.subtle">-</Text>
-        </Stack>
-
-        <Stack bg="gray.contrast" p={6} rounded="2xl" shadow="ui">
-          <Heading>{t('titles.report')}</Heading>
-          <Text color="fg.subtle">-</Text>
-        </Stack>
+        <Flex gap={6} direction={{ base: 'column', sm: 'row', lg: 'column' }} h="full">
+          {isLoading ? (
+            <Skeleton flex={1} shadow="ui" rounded="2xl" />
+          ) : (
+            <Stack flex={1} bg="gray.contrast" p={6} rounded="2xl" shadow="ui">
+              <Heading>{t('titles.statistics')}</Heading>
+              <Text color="fg.subtle">-</Text>
+            </Stack>
+          )}
+          {isLoading ? (
+            <Skeleton minW={250} flex={1} shadow="ui" rounded="2xl" />
+          ) : (
+            <Stack minW={250} p={6} rounded="2xl" gap={6} shadow="uiInset">
+              <Heading>{t('titles.report')}</Heading>
+              <Button bg="teal.fg" _hover={{ opacity: 0.9 }} rounded="xl">
+                {t('buttons.download-xlsx')}
+              </Button>
+            </Stack>
+          )}
+        </Flex>
       </Flex>
-
-      <Stack w="full" bg="gray.contrast" p={6} rounded="2xl" shadow="ui"></Stack>
+      {isLoading ? (
+        <Stack minH={400} w="full" rounded="2xl">
+          <Skeleton w="full" h="full" shadow="ui" rounded="2xl" />
+        </Stack>
+      ) : (
+        <Stack minH={400} w="full" bg="gray.contrast" p={6} rounded="2xl" shadow="ui">
+          <DicomArea researchId={research.id} />
+        </Stack>
+      )}
     </Flex>
   )
 }

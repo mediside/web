@@ -5,8 +5,9 @@ const config = defineConfig({
   theme: {
     tokens: {
       shadows: {
-        ui: { value: '0 4px 16px rgba(0,0,0,0.05)' },
-        uiHover: { value: '0 4px 20px rgba(0,0,0,0.1)' },
+        ui: { value: '0 4px 16px rgba(0,0,0,0.08)' },
+        uiHover: { value: '0 4px 22px rgba(0,0,0,0.14)' },
+        uiInset: { value: 'inset 0 0 20px rgba(0,0,0,0.14)' },
       },
     },
   },

@@ -22,6 +22,9 @@
         "research": "Исследование",
         "statistics": "Статистика",
         "report": "Отчет"
+      },
+      "buttons": {
+        "download-xlsx": "Скачать .XLSX"
       }
     }
   },

@@ -29,7 +29,7 @@ export const Main: FC = () => {
           </Card>
           <Card bg="gray.contrast" onClick={() => navigate(RoutePath.About)}>
             <Heading size="4xl">{t('titles.about')}</Heading>
-            <Text color="fg.subtle">{t('paragraphs.about')}</Text>
+            <Text>{t('paragraphs.about')}</Text>
           </Card>
         </Grid>
         <HStack>
