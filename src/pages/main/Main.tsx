@@ -46,7 +46,7 @@ export const Main: FC = () => {
             ) : researches.researches.length ? (
               researches.researches.map((r) => <ResearchCard research={r} key={r.id} />)
             ) : (
-              <GridItem colSpan={2}>
+              <GridItem colSpan={{ sm: 2, md: 3, xl: 4 }}>
                 <Center>
                   <Text color="fg.muted" textAlign="center" maxW={600}>
                     {t('paragraphs.no-research', { cardTitle: t('titles.classify') })}
