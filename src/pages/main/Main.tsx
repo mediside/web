@@ -1,10 +1,21 @@
-import { Center, Grid, Heading, HStack, RoutePath, Separator, Skeleton, Stack, Text, useTranslation } from '@shared'
+import { Center, Grid, GridItem, Heading, HStack, RoutePath, Separator, Skeleton, Stack, Text, useTranslation } from '@shared'
 import { Card } from './Card'
 import { useLocation } from 'wouter'
+import { useResearches } from '@entities'
+import { useEffect } from 'react'
+import { ResearchCard } from './ResearchCard'
+
+const SKELETONS = new Array(2).fill(0).map((_, k) => <Skeleton key={k} shadow="ui" h={{ base: 200, md: 400 }} rounded="4xl" />)
 
 export const Main: FC = () => {
   const t = useTranslation('pages.main')
   const [, navigate] = useLocation()
+
+  const researches = useResearches()
+
+  useEffect(() => {
+    researches.get.fetch()
+  }, [])
 
   return (
     <Center>
@@ -28,10 +39,23 @@ export const Main: FC = () => {
           </Text>
           <Separator flex="1" size="md" />
         </HStack>
-        <Grid gap={6} templateColumns={{ md: '1fr 1fr' }}>
-          <Skeleton shadow="ui" h={{ base: 200, md: 400 }} rounded="4xl" />
-          <Skeleton shadow="ui" h={{ base: 200, md: 400 }} rounded="4xl" />
-        </Grid>
+        {
+          <Grid gap={6} templateColumns={{ sm: '1fr 1fr', md: '1fr 1fr 1fr', xl: '1fr 1fr 1fr 1fr' }}>
+            {researches.get.pending ? (
+              SKELETONS
+            ) : researches.researches.length ? (
+              researches.researches.map((r) => <ResearchCard research={r} key={r.id} />)
+            ) : (
+              <GridItem colSpan={2}>
+                <Center>
+                  <Text color="fg.muted" textAlign="center" maxW={600}>
+                    {t('paragraphs.no-research', { cardTitle: t('titles.classify') })}
+                  </Text>
+                </Center>
+              </GridItem>
+            )}
+          </Grid>
+        }
       </Stack>
     </Center>
   )
