@@ -3,6 +3,8 @@ import { FetchedResearch } from './types'
 
 export const getResearches = async () => (await api.get<FetchedResearch[]>('researches')).data
 
+export const getOneResearch = async (id: string) => (await api.get<FetchedResearch>(`researches/${id}`)).data
+
 export const createResearch = async () => (await api.post<FetchedResearch>('researches/new')).data
 
 export const deleteResearch = async (id: string) => {
