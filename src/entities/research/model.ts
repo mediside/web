@@ -3,7 +3,7 @@ import * as api from './api'
 import { Research } from './types'
 import { parseResearch } from './helpers'
 
-export const getResearchesFx = createEffect(async () => (await api.getResearches()).map(parseResearch))
+export const getResearchesFx = createEffect(async () => (await api.getResearches()).map(parseResearch).reverse())
 
 export const createResearchFx = createEffect(async () => parseResearch(await api.createResearch()))
 
