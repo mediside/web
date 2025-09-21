@@ -5,7 +5,7 @@ import { useResearches } from '@entities'
 import { useEffect } from 'react'
 import { ResearchCard } from './ResearchCard'
 
-const SKELETONS = new Array(2).fill(0).map((_, k) => <Skeleton key={k} shadow="ui" h={{ base: 200, md: 400 }} rounded="4xl" />)
+const SKELETONS = new Array(7).fill(0).map((_, k) => <Skeleton key={k} shadow="ui" h={{ base: 200, md: 400 }} rounded="4xl" />)
 
 export const Main: FC = () => {
   const t = useTranslation('pages.main')

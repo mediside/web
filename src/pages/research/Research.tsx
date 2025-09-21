@@ -1,11 +1,14 @@
-import { Flex, Heading, Stack, Text, useTranslation } from '@shared'
-import { useParams } from 'wouter'
+import { Flex, Heading, RoutePath, Stack, Text, useTranslation } from '@shared'
+import { useLocation, useParams } from 'wouter'
 
 type WithId = { id: string }
 
 export const Research: FC = () => {
   const t = useTranslation('pages.research')
   const { id } = useParams<WithId>()
+
+  const [, navigate] = useLocation()
+
   console.log(id)
   // TODO: breakpoints for mobile
   // TODO: icons
@@ -22,6 +25,7 @@ export const Research: FC = () => {
             p={6}
             rounded="2xl"
             shadow="ui"
+            onClick={() => navigate(RoutePath.Main)}
           >
             {'<'}
           </Stack>
