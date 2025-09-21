@@ -1,0 +1,1 @@
+export { useResearches } from './hooks'
