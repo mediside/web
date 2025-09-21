@@ -24,5 +24,12 @@
         "report": "Отчет"
       }
     }
+  },
+  "entities": {
+    "research": {
+      "titles": {
+        "default": "Исследование {{num}}"
+      }
+    }
   }
 }
