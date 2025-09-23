@@ -1,7 +1,8 @@
 import { API_URL, Method } from './constants'
 
-const fetch = async <T>(method: Method, path: string, body?: object) => {
-  const response = await window.fetch(new URL(path, API_URL), { method, body: JSON.stringify(body) })
+const fetch = async <T>(method: Method, path: string, body?: object | FormData) => {
+  const isData = body instanceof FormData // TODO: убрать проверку в угоду оптимизации
+  const response = await window.fetch(new URL(path, API_URL), { method, body: isData ? body : JSON.stringify(body) })
   const data: T = await response.json()
   return { data }
 }
