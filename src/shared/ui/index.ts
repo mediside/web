@@ -13,4 +13,6 @@ export {
   GridItem,
   Skeleton,
   Flex,
+  FileUpload,
+  useFileUpload,
 } from '@chakra-ui/react'

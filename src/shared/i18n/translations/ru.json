@@ -22,8 +22,12 @@
         "statistics": "Статистика",
         "report": "Отчет"
       },
+      "paragraphs": {
+        "drug-and-drop": "Перетащите файлы с исследованиями сюда или нажмите на эту область"
+      },
       "buttons": {
-        "download-xlsx": "Скачать .XLSX"
+        "download-xlsx": "Скачать .XLSX",
+        "send": "Отправить"
       }
     }
   },
