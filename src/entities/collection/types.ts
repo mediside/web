@@ -1,4 +1,4 @@
-export type FetchedResearch = {
+export type FetchedCollection = {
   id: string
   num: number
   title: string
@@ -6,7 +6,7 @@ export type FetchedResearch = {
   created_at: string
 }
 
-export type Research = {
+export type Collection = {
   id: string
   num: number
   title: string | null // null нужен, чтобы вывести название по-умолчанию

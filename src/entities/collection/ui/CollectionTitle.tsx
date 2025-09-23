@@ -1,12 +1,12 @@
 import { Heading, useTranslation } from '@shared'
 
-type ResearchTitleProps = {
+type CollectionTitleProps = {
   title: string | null
   num: number
 }
 
-export const ResearchTitle: FC<ResearchTitleProps> = ({ title, num }) => {
-  const t = useTranslation('entities.research')
+export const CollectionTitle: FC<CollectionTitleProps> = ({ title, num }) => {
+  const t = useTranslation('entities.collection')
 
   return <Heading>{title === null ? t('titles.default', { num }) : title}</Heading>
 }

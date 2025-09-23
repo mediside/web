@@ -1,4 +1,4 @@
-import { ResearchTitle, useCurrentResearch } from '@entities'
+import { CollectionTitle, useCurrentCollection } from '@entities'
 import { Button, Flex, Heading, HStack, RoutePath, Skeleton, Stack, Text, useTranslation } from '@shared'
 import { useEffect } from 'react'
 import { useLocation, useParams } from 'wouter'
@@ -7,12 +7,12 @@ import { DicomArea } from './DicomArea'
 // TODO: icons
 type WithId = { id: string }
 
-export const Research: FC = () => {
-  const t = useTranslation('pages.research')
+export const Collection: FC = () => {
+  const t = useTranslation('pages.collection')
   const { id } = useParams<WithId>()
   const [, navigate] = useLocation()
 
-  const { get, close, research } = useCurrentResearch()
+  const { get, close, collection } = useCurrentCollection()
 
   useEffect(() => {
     get.fetch(id)
@@ -20,7 +20,7 @@ export const Research: FC = () => {
     return close
   }, [])
 
-  const isLoading = !research || get.pending
+  const isLoading = !collection || get.pending
 
   return (
     <Flex gap={6} h="calc(100vh - 80px)" direction={{ base: 'column', lg: 'row' }}>
@@ -44,8 +44,8 @@ export const Research: FC = () => {
             <Skeleton flex={1} shadow="ui" rounded="2xl" />
           ) : (
             <Stack bg="gray.contrast" flex={1} p={6} rounded="2xl" shadow="ui">
-              <ResearchTitle num={research.num} title={research.title} />
-              <Text color="fg.muted">{research.createdAt.toLocaleString()}</Text>
+              <CollectionTitle num={collection.num} title={collection.title} />
+              <Text color="fg.muted">{collection.createdAt.toLocaleString()}</Text>
             </Stack>
           )}
         </Flex>
@@ -76,7 +76,7 @@ export const Research: FC = () => {
         </Stack>
       ) : (
         <Stack minH={400} w="full" bg="gray.contrast" p={6} rounded="2xl" shadow="ui">
-          <DicomArea researchId={research.id} />
+          <DicomArea collectionId={collection.id} />
         </Stack>
       )}
     </Flex>

@@ -1,6 +1,6 @@
-import { FetchedResearch, Research } from '../types'
+import { FetchedCollection, Collection } from '../types'
 
-export const parseResearch = (r: FetchedResearch): Research => ({
+export const parseCollection = (r: FetchedCollection): Collection => ({
   id: r.id,
   num: r.num,
   title: r.title.length ? r.title : null,

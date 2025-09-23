@@ -1,3 +1,3 @@
 export * from './main'
 export * from './about'
-export * from './research'
+export * from './collection'

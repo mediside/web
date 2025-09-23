@@ -1,1 +1,0 @@
-export { ResearchTitle } from './ResearchTitle'
