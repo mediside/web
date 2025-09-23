@@ -14,12 +14,11 @@
         "no-collection": "Здесь пусто, потому что вы пока не проводили распознавания. Нажмите на карточку \"{{cardTitle}}\", чтобы начать распознавание DICOM-изображений"
       },
       "labels": {
-        "collection": "ваши исследования:"
+        "collection": "ваши коллекции:"
       }
     },
     "collection": {
       "titles": {
-        "collection": "Исследование",
         "statistics": "Статистика",
         "report": "Отчет"
       },
@@ -31,7 +30,7 @@
   "entities": {
     "collection": {
       "titles": {
-        "default": "Исследование {{num}}"
+        "default": "Коллекция {{num}}"
       }
     }
   }
