@@ -19,7 +19,7 @@ export const DicomArea: FC<DicomAreaProps> = ({ collectionId }) => {
       <FileUpload.Dropzone h="full" rounded="2xl">
         <FileUpload.DropzoneContent gap={5}>
           <Text color="fg.muted">{t('paragraphs.drug-and-drop')}</Text>
-          <Button onClick={handleUpload} rounded="xl">
+          <Button disabled={!fileUpload.acceptedFiles.length} onClick={handleUpload} rounded="xl">
             {t('buttons.send')}
           </Button>
         </FileUpload.DropzoneContent>
