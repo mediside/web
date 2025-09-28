@@ -8,5 +8,5 @@ export const getOneCollection = async (id: string) => (await api.get<FetchedColl
 export const createCollection = async () => (await api.post<FetchedCollection>('collections/new')).data
 
 export const deleteCollection = async (id: string) => {
-  await api.delete(`collectiones/${id}`)
+  await api.delete(`collections/${id}`)
 }

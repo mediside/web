@@ -11,10 +11,10 @@ export const Main: FC = () => {
   const t = useTranslation('pages.main')
   const [, navigate] = useLocation()
 
-  const collectiones = useCollections()
+  const collections = useCollections()
 
   useEffect(() => {
-    collectiones.get.fetch()
+    collections.get.fetch()
   }, [])
 
   return (
@@ -41,10 +41,10 @@ export const Main: FC = () => {
         </HStack>
         {
           <Grid gap={6} templateColumns={{ sm: '1fr 1fr', md: '1fr 1fr 1fr', xl: '1fr 1fr 1fr 1fr' }}>
-            {collectiones.get.pending ? (
+            {collections.get.pending ? (
               SKELETONS
-            ) : collectiones.collectiones.length ? (
-              collectiones.collectiones.map((r) => <CollectionCard collection={r} key={r.id} />)
+            ) : collections.collections.length ? (
+              collections.collections.map((r) => <CollectionCard collection={r} key={r.id} />)
             ) : (
               <GridItem colSpan={{ sm: 2, md: 3, xl: 4 }}>
                 <Center>

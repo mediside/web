@@ -5,7 +5,7 @@ type DicomAreaProps = {
   collectionId: string
 }
 
-export const DicomArea: FC<DicomAreaProps> = ({ collectionId }) => {
+export const UploadArea: FC<DicomAreaProps> = ({ collectionId }) => {
   const t = useTranslation('pages.collection')
   console.log(collectionId)
   const fileUpload = useFileUpload({ maxFiles: 1000 })
@@ -14,9 +14,9 @@ export const DicomArea: FC<DicomAreaProps> = ({ collectionId }) => {
   const handleUpload = () => researches.upload(fileUpload.acceptedFiles)
 
   return (
-    <FileUpload.RootProvider value={fileUpload} h="full" alignItems="stretch">
+    <FileUpload.RootProvider value={fileUpload} alignItems="stretch">
       <FileUpload.HiddenInput />
-      <FileUpload.Dropzone h="full" rounded="2xl">
+      <FileUpload.Dropzone rounded="2xl">
         <FileUpload.DropzoneContent gap={5}>
           <Text color="fg.muted">{t('paragraphs.drug-and-drop')}</Text>
           <Button disabled={!fileUpload.acceptedFiles.length} onClick={handleUpload} rounded="xl">

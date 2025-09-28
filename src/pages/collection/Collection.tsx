@@ -2,7 +2,7 @@ import { CollectionTitle, useCurrentCollection } from '@entities'
 import { Button, Flex, Heading, HStack, RoutePath, Skeleton, Stack, Text, useTranslation } from '@shared'
 import { useEffect } from 'react'
 import { useLocation, useParams } from 'wouter'
-import { DicomArea } from './DicomArea'
+import { UploadArea } from './UploadArea'
 
 // TODO: icons
 type WithId = { id: string }
@@ -76,7 +76,7 @@ export const Collection: FC = () => {
         </Stack>
       ) : (
         <Stack minH={400} w="full" bg="gray.contrast" p={6} rounded="2xl" shadow="ui">
-          <DicomArea collectionId={collection.id} />
+          <UploadArea collectionId={collection.id} />
         </Stack>
       )}
     </Flex>

@@ -11,7 +11,7 @@ export const createCollectionFx = createEffect(async () => parseCollection(await
 
 export const deleteCollectionFx = createEffect(api.deleteCollection)
 
-export const $collectiones = createStore<Collection[]>([]).on(getCollectionsFx.doneData, (_, data) => data)
+export const $collections = createStore<Collection[]>([]).on(getCollectionsFx.doneData, (_, data) => data)
 
 export const closeCollectionEvent = createEvent()
 
