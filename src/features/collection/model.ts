@@ -1,11 +1,14 @@
-import { createEffect, createEvent, createStore } from 'effector'
+import { createEffect, createEvent, createStore, sample } from 'effector'
 import * as api from './api'
 import { Collection } from './types'
-import { parseCollection } from './helpers'
+import { parseCollection, parseCollectionWithResearches } from './helpers'
+import { setResearchesFx } from '@entities'
 
 export const getCollectionsFx = createEffect(async () => (await api.getCollections()).map(parseCollection).reverse())
 
-export const getOneCollectionFx = createEffect(async (id: string) => parseCollection(await api.getOneCollection(id)))
+export const getOneCollectionFx = createEffect(async (id: string) =>
+  parseCollectionWithResearches(await api.getOneCollection(id))
+)
 
 export const createCollectionFx = createEffect(async () => parseCollection(await api.createCollection()))
 
@@ -17,4 +20,10 @@ export const closeCollectionEvent = createEvent()
 
 export const $currentCollection = createStore<Collection | null>(null)
   .reset(closeCollectionEvent)
-  .on(getOneCollectionFx.doneData, (_, data) => data)
+  .on(getOneCollectionFx.doneData, (_, data) => data.collection)
+
+sample({
+  source: getOneCollectionFx.doneData,
+  fn: (s) => s.researches,
+  target: setResearchesFx,
+})

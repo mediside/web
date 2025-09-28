@@ -1,9 +1,9 @@
 import { FetchedCollection, Collection } from '../types'
 
-export const parseCollection = (r: FetchedCollection): Collection => ({
-  id: r.id,
-  num: r.num,
-  title: r.title.length ? r.title : null,
-  pathologyLevel: r.pathology_level,
-  createdAt: new Date(r.created_at),
+export const parseCollection = (c: FetchedCollection): Collection => ({
+  id: c.id,
+  num: c.num,
+  title: c.title.length ? c.title : null,
+  pathologyLevel: c.pathology_level,
+  createdAt: new Date(c.created_at),
 })

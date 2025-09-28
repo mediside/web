@@ -1,5 +1,5 @@
 import { createEffect } from 'effector'
-import * as api from './api'
+import * as api from './../api'
 
 export const uploadFilesFx = createEffect(async (files: File[]) => {
   if (files.length === 0) {

@@ -1,9 +1,9 @@
 import { api } from '@shared'
-import { FetchedCollection } from './types'
+import { FetchedCollection, FetchedCollectionWithResearches } from './types'
 
 export const getCollections = async () => (await api.get<FetchedCollection[]>('collections')).data
 
-export const getOneCollection = async (id: string) => (await api.get<FetchedCollection>(`collections/${id}`)).data
+export const getOneCollection = async (id: string) => (await api.get<FetchedCollectionWithResearches>(`collections/${id}`)).data
 
 export const createCollection = async () => (await api.post<FetchedCollection>('collections/new')).data
 

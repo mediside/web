@@ -1,0 +1,1 @@
+export { ParseResearch } from './parseResearch'
