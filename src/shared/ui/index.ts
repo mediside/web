@@ -15,4 +15,5 @@ export {
   Flex,
   FileUpload,
   useFileUpload,
+  Code,
 } from '@chakra-ui/react'

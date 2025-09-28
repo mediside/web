@@ -1,8 +1,10 @@
 import { CollectionTitle, useCurrentCollection } from '@features'
-import { Button, Flex, Heading, HStack, RoutePath, Skeleton, Stack, Text, useTranslation } from '@shared'
+import { Button, Flex, Grid, Heading, HStack, RoutePath, Skeleton, Stack, Text, useTranslation } from '@shared'
 import { useEffect } from 'react'
 import { useLocation, useParams } from 'wouter'
 import { UploadArea } from './UploadArea'
+import { useResearches } from '@entities'
+import { ResearchCard } from './ResearchCard'
 
 // TODO: icons
 type WithId = { id: string }
@@ -13,6 +15,7 @@ export const Collection: FC = () => {
   const [, navigate] = useLocation()
 
   const { get, close, collection } = useCurrentCollection()
+  const { researches } = useResearches()
 
   useEffect(() => {
     get.fetch(id)
@@ -77,6 +80,11 @@ export const Collection: FC = () => {
       ) : (
         <Stack minH={400} w="full" bg="gray.contrast" p={6} rounded="2xl" shadow="ui">
           <UploadArea collectionId={collection.id} />
+          <Grid overflow="auto" templateColumns={{ base: '1fr', xl: '1fr 1fr' }} gap={3}>
+            {researches.map((r) => (
+              <ResearchCard key={r.id} research={r} />
+            ))}
+          </Grid>
         </Stack>
       )}
     </Flex>
