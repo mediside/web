@@ -1,6 +1,6 @@
 import { HStack, RoutePath, Text } from '@shared'
 import { Card } from './Card'
-import { Collection, CollectionTitle } from '@entities'
+import { Collection, CollectionTitle } from '@features'
 import { useLocation } from 'wouter'
 
 type CollectionCardProps = {

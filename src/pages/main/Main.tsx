@@ -1,7 +1,7 @@
 import { Center, Grid, GridItem, Heading, HStack, RoutePath, Separator, Skeleton, Stack, Text, useTranslation } from '@shared'
 import { Card } from './Card'
 import { useLocation } from 'wouter'
-import { useCollections } from '@entities'
+import { useCollections } from '@features'
 import { useEffect } from 'react'
 import { CollectionCard } from './CollectionCard'
 

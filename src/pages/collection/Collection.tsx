@@ -1,4 +1,4 @@
-import { CollectionTitle, useCurrentCollection } from '@entities'
+import { CollectionTitle, useCurrentCollection } from '@features'
 import { Button, Flex, Heading, HStack, RoutePath, Skeleton, Stack, Text, useTranslation } from '@shared'
 import { useEffect } from 'react'
 import { useLocation, useParams } from 'wouter'
