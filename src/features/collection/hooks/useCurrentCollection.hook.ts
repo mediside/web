@@ -1,9 +1,10 @@
 import { useUnit } from 'effector-react'
-import { $currentCollection, closeCollectionEvent, getOneCollectionFx } from '../model'
+import { $currentCollection, getOneCollectionFx } from '../model'
 import { useFxPending } from '@shared'
+import { closeResearchesEvent } from '@entities'
 
 export const useCurrentCollection = () => ({
   get: useFxPending(getOneCollectionFx),
-  close: useUnit(closeCollectionEvent),
+  close: useUnit(closeResearchesEvent),
   collection: useUnit($currentCollection),
 })

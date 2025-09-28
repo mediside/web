@@ -1,8 +1,8 @@
-import { createEffect, createEvent, createStore, sample } from 'effector'
+import { createEffect, createStore, sample } from 'effector'
 import * as api from './api'
 import { Collection } from './types'
 import { parseCollection, parseCollectionWithResearches } from './helpers'
-import { setResearchesFx } from '@entities'
+import { closeResearchesEvent, setResearchesFx } from '@entities'
 
 export const getCollectionsFx = createEffect(async () => (await api.getCollections()).map(parseCollection).reverse())
 
@@ -16,10 +16,8 @@ export const deleteCollectionFx = createEffect(api.deleteCollection)
 
 export const $collections = createStore<Collection[]>([]).on(getCollectionsFx.doneData, (_, data) => data)
 
-export const closeCollectionEvent = createEvent()
-
 export const $currentCollection = createStore<Collection | null>(null)
-  .reset(closeCollectionEvent)
+  .reset(closeResearchesEvent)
   .on(getOneCollectionFx.doneData, (_, data) => data.collection)
 
 sample({

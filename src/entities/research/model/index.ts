@@ -1,2 +1,2 @@
 export { uploadFilesFx } from './upload'
-export { setResearchesFx } from './researches'
+export { setResearchesFx, closeResearchesEvent } from './researches'
