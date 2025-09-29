@@ -18,4 +18,5 @@ export {
   Code,
   Badge,
   Stat,
+  Icon,
 } from '@chakra-ui/react'

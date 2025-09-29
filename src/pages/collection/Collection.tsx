@@ -1,12 +1,24 @@
 import { CollectionTitle, useCurrentCollection } from '@features'
-import { Button, Flex, Grid, Heading, HStack, RoutePath, Skeleton, Stack, Text, useTranslation } from '@shared'
+import {
+  Button,
+  Flex,
+  Grid,
+  Heading,
+  HStack,
+  Icon,
+  IconArrowLeft,
+  RoutePath,
+  Skeleton,
+  Stack,
+  Text,
+  useTranslation,
+} from '@shared'
 import { useEffect } from 'react'
 import { useLocation, useParams } from 'wouter'
 import { UploadArea } from './UploadArea'
 import { useResearches } from '@entities'
 import { ResearchCard } from './ResearchCard'
 
-// TODO: icons
 type WithId = { id: string }
 
 export const Collection: FC = () => {
@@ -41,7 +53,9 @@ export const Collection: FC = () => {
             shadow="ui"
             onClick={() => navigate(RoutePath.Main)}
           >
-            <Heading size="3xl">{'<'}</Heading>
+            <Icon size="2xl">
+              <IconArrowLeft />
+            </Icon>
           </HStack>
           {isLoading ? (
             <Skeleton flex={1} shadow="ui" rounded="2xl" />
