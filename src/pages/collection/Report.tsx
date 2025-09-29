@@ -3,9 +3,10 @@ import { Heading, HStack, Text, Badge, Button, Stack, Spacer, useTranslation } f
 type ReportProps = {
   downloadReport: () => void
   pathologyLevel: number
+  disabled: boolean
 }
 
-export const Report: FC<ReportProps> = ({ downloadReport, pathologyLevel }) => {
+export const Report: FC<ReportProps> = ({ downloadReport, pathologyLevel, disabled }) => {
   const t = useTranslation('pages.collection')
 
   return (
@@ -18,7 +19,7 @@ export const Report: FC<ReportProps> = ({ downloadReport, pathologyLevel }) => {
         </Badge>
       </HStack>
       <Spacer />
-      <Button mt={2} onClick={downloadReport} bg="teal.fg" _hover={{ opacity: 0.9 }} rounded="xl">
+      <Button disabled={disabled} mt={2} onClick={downloadReport} bg="teal.fg" _hover={{ opacity: 0.9 }} rounded="xl">
         {t('buttons.download-xlsx')}
       </Button>
     </Stack>

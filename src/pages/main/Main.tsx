@@ -49,7 +49,7 @@ export const Main: FC = () => {
               <GridItem colSpan={{ sm: 2, md: 3, xl: 4 }}>
                 <Center>
                   <Text color="fg.muted" textAlign="center" maxW={600}>
-                    {t('paragraphs.no-collection', { cardTitle: t('titles.classify') })}
+                    {t('paragraphs.no-collections', { cardTitle: t('titles.classify') })}
                   </Text>
                 </Center>
               </GridItem>

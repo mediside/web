@@ -1,5 +1,5 @@
 import { CollectionTitle, useCurrentCollection } from '@features'
-import { Flex, Grid, HStack, Icon, IconArrowLeft, RoutePath, Skeleton, Stack, Text } from '@shared'
+import { Flex, Grid, HStack, Icon, IconArrowLeft, RoutePath, Skeleton, Stack, Text, useTranslation, VStack } from '@shared'
 import { useEffect } from 'react'
 import { useLocation, useParams } from 'wouter'
 import { UploadArea } from './UploadArea'
@@ -11,6 +11,7 @@ import { Report } from './Report'
 type WithId = { id: string }
 
 export const Collection: FC = () => {
+  const t = useTranslation('pages.collection')
   const { id } = useParams<WithId>()
   const [, navigate] = useLocation()
 
@@ -63,7 +64,7 @@ export const Collection: FC = () => {
           {isLoading ? (
             <Skeleton minW={250} flex={1} shadow="ui" rounded="2xl" />
           ) : (
-            <Report pathologyLevel={collection.pathologyLevel} downloadReport={downloadReport} />
+            <Report pathologyLevel={collection.pathologyLevel} downloadReport={downloadReport} disabled={!researches.length} />
           )}
         </Flex>
       </Flex>
@@ -74,16 +75,24 @@ export const Collection: FC = () => {
       ) : (
         <Stack minH={400} w="full" bg="gray.contrast" p={6} rounded="2xl" shadow="ui" gap={6}>
           <UploadArea collectionId={collection.id} />
-          <Grid overflow="auto" templateColumns={{ base: '1fr', xl: '1fr 1fr' }} gap={3}>
-            {researches.map((r) => (
-              <ResearchCard
-                pathologyLevel={collection.pathologyLevel}
-                key={r.id}
-                research={r}
-                deleteResearch={() => deleteResearch(r.id)}
-              />
-            ))}
-          </Grid>
+          {researches.length ? (
+            <Grid overflow="auto" templateColumns={{ base: '1fr', xl: '1fr 1fr' }} gap={3}>
+              {researches.map((r) => (
+                <ResearchCard
+                  pathologyLevel={collection.pathologyLevel}
+                  key={r.id}
+                  research={r}
+                  deleteResearch={() => deleteResearch(r.id)}
+                />
+              ))}
+            </Grid>
+          ) : (
+            <VStack h="full" justify="center">
+              <Text color="fg.muted" textAlign="center" maxW={600}>
+                {t('paragraphs.no-researches')}
+              </Text>
+            </VStack>
+          )}
         </Stack>
       )}
     </Flex>

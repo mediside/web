@@ -80,7 +80,7 @@ export const Statistics: FC<StatisticsProps> = ({ researches, pathologyLevel }) 
               {t('paragraphs.statistics-total-percent-before')}
             </Text>
             <Heading color="fg.muted" size="5xl">
-              {((withPathology / finished) * 100).toFixed(1)} %
+              {(finished ? (withPathology / finished) * 100 : 0).toFixed(1)} %
             </Heading>
             <Text color="fg.muted" textAlign="center" fontSize="xs">
               {t('paragraphs.statistics-total-percent-after')}
