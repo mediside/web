@@ -1,3 +1,4 @@
 import { api } from '@shared'
 
-export const UploadFiles = async (data: FormData) => (await api.post('researches/upload', data)).data
+export const UploadFiles = async (collectionId: string, data: FormData) =>
+  (await api.post(`researches/upload?collection_id=${collectionId}`, data)).data

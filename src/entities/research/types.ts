@@ -40,3 +40,8 @@ export type Research = {
   }
   status: `${ResearchStatus}`
 }
+
+export type UploadParams = {
+  collectionId: string
+  files: File[]
+}

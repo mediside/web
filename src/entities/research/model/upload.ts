@@ -1,7 +1,8 @@
 import { createEffect } from 'effector'
 import * as api from './../api'
+import { UploadParams } from '../types'
 
-export const uploadFilesFx = createEffect(async (files: File[]) => {
+export const uploadFilesFx = createEffect(async ({ files, collectionId }: UploadParams) => {
   if (files.length === 0) {
     return
   }
@@ -11,6 +12,6 @@ export const uploadFilesFx = createEffect(async (files: File[]) => {
     formData.append('files', files[i])
   }
 
-  const resp = await api.UploadFiles(formData)
+  const resp = await api.UploadFiles(collectionId, formData)
   console.log('Upload files resp', resp)
 })
