@@ -21,4 +21,7 @@ export {
   Icon,
   DataList,
   Spacer,
+  Menu,
+  Portal,
+  IconButton,
 } from '@chakra-ui/react'

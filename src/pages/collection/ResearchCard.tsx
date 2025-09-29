@@ -1,7 +1,6 @@
 import { Research } from '@entities'
-import { Badge, Box, Code, Heading, HStack, IconX, Spacer, Stack, Text, useTranslation, VStack } from '@shared'
+import { Badge, Box, Code, Heading, HStack, IconButton, IconX, Spacer, Stack, Text, useTranslation, VStack } from '@shared'
 import { ProbabilityBlock } from './ProbabilityBlock'
-import { IconButton } from '@chakra-ui/react'
 
 type ResearchCardProps = {
   research: Research

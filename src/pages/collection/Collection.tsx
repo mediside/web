@@ -1,4 +1,4 @@
-import { CollectionTitle, useCurrentCollection } from '@features'
+import { useCurrentCollection } from '@features'
 import { Flex, Grid, HStack, Icon, IconArrowLeft, RoutePath, Skeleton, Stack, Text, useTranslation, VStack } from '@shared'
 import { useEffect } from 'react'
 import { useLocation, useParams } from 'wouter'
@@ -7,6 +7,7 @@ import { useResearches } from '@entities'
 import { ResearchCard } from './ResearchCard'
 import { Statistics } from './Statistics'
 import { Report } from './Report'
+import { ShortInfo } from './ShortInfo'
 
 type WithId = { id: string }
 
@@ -15,7 +16,7 @@ export const Collection: FC = () => {
   const { id } = useParams<WithId>()
   const [, navigate] = useLocation()
 
-  const { get, close, collection, downloadReport } = useCurrentCollection()
+  const { get, close, collection, downloadReport, deleteCollection } = useCurrentCollection()
   const { researches, deleteResearch } = useResearches()
 
   useEffect(() => {
@@ -49,10 +50,13 @@ export const Collection: FC = () => {
           {isLoading ? (
             <Skeleton flex={1} shadow="ui" rounded="2xl" />
           ) : (
-            <Stack bg="gray.contrast" flex={1} p={6} rounded="2xl" shadow="ui">
-              <CollectionTitle num={collection.num} title={collection.title} />
-              <Text color="fg.muted">{collection.createdAt.toLocaleString()}</Text>
-            </Stack>
+            <ShortInfo
+              deleteCollection={async () => {
+                await deleteCollection()
+                navigate(RoutePath.Main)
+              }}
+              collection={collection}
+            />
           )}
         </Flex>
         <Flex gap={6} direction={{ base: 'column', sm: 'row', lg: 'column' }} h="full">

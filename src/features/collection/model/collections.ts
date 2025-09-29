@@ -1,4 +1,4 @@
-import { createEffect, createStore, sample } from 'effector'
+import { attach, createEffect, createStore, sample } from 'effector'
 import * as api from '../api'
 import { Collection } from '../types'
 import { parseCollection, parseCollectionWithResearches } from '../helpers'
@@ -12,13 +12,21 @@ export const getOneCollectionFx = createEffect(async (id: string) =>
 
 export const createCollectionFx = createEffect(async () => parseCollection(await api.createCollection()))
 
-export const deleteCollectionFx = createEffect(api.deleteCollection)
-
 export const $collections = createStore<Collection[]>([]).on(getCollectionsFx.doneData, (_, data) => data)
 
 export const $currentCollection = createStore<Collection | null>(null)
   .reset(closeResearchesEvent)
   .on(getOneCollectionFx.doneData, (_, data) => data.collection)
+
+export const deleteCollectionFx = attach({
+  source: $currentCollection,
+  effect: (c) => {
+    if (!c) {
+      return
+    }
+    api.deleteCollection(c.id)
+  },
+})
 
 sample({
   source: getOneCollectionFx.doneData,
