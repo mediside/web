@@ -17,17 +17,22 @@ export const Main: FC = () => {
     collections.get.fetch()
   }, [])
 
+  const createHandler = async () => {
+    const c = await collections.create()
+    navigate(`${RoutePath.CollectionBase}/${c.id}`)
+  }
+
   return (
     <Center>
       <Stack gap={10}>
         <Grid gap={6} templateColumns={{ md: '1fr 300px' }}>
-          <Card h={300} bg="gray.contrast">
+          <Card rounded="4xl" h={300} bg="gray.contrast" onClick={createHandler}>
             <Heading size="4xl" color="teal.fg">
               {t('titles.classify')}
             </Heading>
             <Text color="teal.solid">{t('paragraphs.classify')}</Text>
           </Card>
-          <Card bg="gray.contrast" onClick={() => navigate(RoutePath.About)}>
+          <Card rounded="4xl" bg="gray.contrast" onClick={() => navigate(RoutePath.About)}>
             <Heading size="4xl">{t('titles.about')}</Heading>
             <Text>{t('paragraphs.about')}</Text>
           </Card>

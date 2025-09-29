@@ -4,10 +4,11 @@ import { PropsWithChildren } from 'react'
 type CardProps = {
   h?: number | string
   bg: string // TODO: поддержать автодополнение
+  rounded: string
   onClick?: () => unknown
 }
 
-export const Card: FC<PropsWithChildren & CardProps> = ({ children, h, bg, onClick }) => {
+export const Card: FC<PropsWithChildren & CardProps> = ({ children, h, bg, onClick, rounded }) => {
   return (
     <Stack
       cursor="pointer"
@@ -15,7 +16,7 @@ export const Card: FC<PropsWithChildren & CardProps> = ({ children, h, bg, onCli
       transition="all 0.2s ease-in-out"
       gap={8}
       p={8}
-      rounded="4xl"
+      rounded={rounded}
       shadow="ui"
       h={h}
       bg={bg}

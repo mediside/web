@@ -4,6 +4,6 @@ import { useUnit } from 'effector-react'
 
 export const useCollections = () => ({
   get: useFxPending(getCollectionsFx),
-  create: useFxPending(createCollectionFx),
+  create: useUnit(createCollectionFx),
   collections: useUnit($collections),
 })

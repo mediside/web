@@ -11,7 +11,7 @@ export const CollectionCard: FC<CollectionCardProps> = ({ collection }) => {
   const [, navigate] = useLocation()
 
   return (
-    <Card bg="gray.contrast" onClick={() => navigate(`${RoutePath.CollectionBase}/${collection.id}`)}>
+    <Card rounded="2xl" bg="gray.contrast" onClick={() => navigate(`${RoutePath.CollectionBase}/${collection.id}`)}>
       <HStack justify="space-between">
         <CollectionTitle title={collection.title} num={collection.num} />
         <Text color="fg.subtle">#{collection.num}</Text>
