@@ -20,12 +20,16 @@
     "collection": {
       "titles": {
         "statistics": "Статистика",
-        "report": "Отчет"
+        "report": "Отчет",
+        "statistics-processing": "Обработка",
+        "statistics-recognition": "Распознавание"
       },
       "paragraphs": {
         "drug-and-drop": "Перетащите файлы с исследованиями сюда или нажмите на эту область. Отправка файлов начнется автоматически",
         "corrupted": "Не удалось открыть ZIP-архив. Убедитесь, что архив не поврежден, и он действительно является ZIP-архивом",
-        "inference-error": "Во время инференса произошла ошибка:"
+        "inference-error": "Во время инференса произошла ошибка:",
+        "statistics-total-percent-before": "из обработанных без ошибок снимков",
+        "statistics-total-percent-after": "содержат патологию"
       },
       "labels": {
         "research-status-corrupted": "архив поврежден",
@@ -38,7 +42,14 @@
         "study-id": "Id исследования: {{id}}",
         "pathology-yes": "Найдены патологии",
         "pathology-no": "Норма (без патологий)",
-        "pathology-probability": "вероятность патологии"
+        "pathology-probability": "вероятность патологии",
+        "statistics-processing-total": "Всего",
+        "statistics-processing-corrupt": "Повреждено",
+        "statistics-processing-queue": "В очереди",
+        "statistics-processing-now": "В оработке",
+        "statistics-processing-finished": "Без ошибок",
+        "statistics-processing-err": "С ошибкой",
+        "pathology-recognition-treshold": "Порог распознавания патологии"
       },
       "buttons": {
         "download-xlsx": "Скачать .XLSX"

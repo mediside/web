@@ -9,7 +9,7 @@ export const ProbabilityBlock: FC<ProbabilityBlockProps> = ({ probabilityOfPatho
   const t = useTranslation('pages.collection')
 
   return (
-    <Stat.Root gap={0} bg={probabilityOfPathology < pathologyLevel ? 'green.50' : 'red.50'} px={3} py={2} rounded="md">
+    <Stat.Root gap={0} bg={probabilityOfPathology < pathologyLevel ? 'green.50' : 'red.50'} px={3} py={2} rounded="xl">
       <Heading size="sm">
         {probabilityOfPathology < pathologyLevel ? t('labels.pathology-no') : t('labels.pathology-yes')}
       </Heading>

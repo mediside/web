@@ -1,28 +1,16 @@
 import { CollectionTitle, useCurrentCollection } from '@features'
-import {
-  Button,
-  Flex,
-  Grid,
-  Heading,
-  HStack,
-  Icon,
-  IconArrowLeft,
-  RoutePath,
-  Skeleton,
-  Stack,
-  Text,
-  useTranslation,
-} from '@shared'
+import { Flex, Grid, HStack, Icon, IconArrowLeft, RoutePath, Skeleton, Stack, Text } from '@shared'
 import { useEffect } from 'react'
 import { useLocation, useParams } from 'wouter'
 import { UploadArea } from './UploadArea'
 import { useResearches } from '@entities'
 import { ResearchCard } from './ResearchCard'
+import { Statistics } from './Statistics'
+import { Report } from './Report'
 
 type WithId = { id: string }
 
 export const Collection: FC = () => {
-  const t = useTranslation('pages.collection')
   const { id } = useParams<WithId>()
   const [, navigate] = useLocation()
 
@@ -70,20 +58,12 @@ export const Collection: FC = () => {
           {isLoading ? (
             <Skeleton flex={1} shadow="ui" rounded="2xl" />
           ) : (
-            <Stack flex={1} bg="gray.contrast" p={6} rounded="2xl" shadow="ui">
-              <Heading>{t('titles.statistics')}</Heading>
-              <Text color="fg.subtle">-</Text>
-            </Stack>
+            <Statistics researches={researches} pathologyLevel={collection.pathologyLevel} />
           )}
           {isLoading ? (
             <Skeleton minW={250} flex={1} shadow="ui" rounded="2xl" />
           ) : (
-            <Stack minW={250} p={6} rounded="2xl" gap={6} shadow="uiInset">
-              <Heading>{t('titles.report')}</Heading>
-              <Button onClick={downloadReport} bg="teal.fg" _hover={{ opacity: 0.9 }} rounded="xl">
-                {t('buttons.download-xlsx')}
-              </Button>
-            </Stack>
+            <Report pathologyLevel={collection.pathologyLevel} downloadReport={downloadReport} />
           )}
         </Flex>
       </Flex>

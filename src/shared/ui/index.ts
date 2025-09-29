@@ -19,4 +19,6 @@ export {
   Badge,
   Stat,
   Icon,
+  DataList,
+  Spacer,
 } from '@chakra-ui/react'
