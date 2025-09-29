@@ -1,6 +1,6 @@
 export enum RoutePath {
   Main = '/',
   About = '/about',
-  Collection = '/collection/:id',
-  CollectionBase = '/collection', // TODO: придумать решение получше
+  Collection = '/collections/:id',
+  CollectionBase = '/collections', // TODO: придумать решение получше
 }
