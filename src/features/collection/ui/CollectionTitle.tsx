@@ -6,7 +6,7 @@ type CollectionTitleProps = {
 }
 
 export const CollectionTitle: FC<CollectionTitleProps> = ({ title, num }) => {
-  const t = useTranslation('entities.collection')
+  const t = useTranslation('features.collection')
 
   return <Heading>{title === null ? t('titles.default', { num }) : title}</Heading>
 }
