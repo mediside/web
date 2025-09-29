@@ -10,3 +10,5 @@ export const createCollection = async () => (await api.post<FetchedCollection>('
 export const deleteCollection = async (id: string) => {
   await api.delete(`collections/${id}`)
 }
+
+export const downloadReport = async (id: string) => await api.download(`collections/${id}/report`)

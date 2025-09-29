@@ -14,7 +14,7 @@ export const Collection: FC = () => {
   const { id } = useParams<WithId>()
   const [, navigate] = useLocation()
 
-  const { get, close, collection } = useCurrentCollection()
+  const { get, close, collection, downloadReport } = useCurrentCollection()
   const { researches } = useResearches()
 
   useEffect(() => {
@@ -66,7 +66,7 @@ export const Collection: FC = () => {
           ) : (
             <Stack minW={250} p={6} rounded="2xl" gap={6} shadow="uiInset">
               <Heading>{t('titles.report')}</Heading>
-              <Button bg="teal.fg" _hover={{ opacity: 0.9 }} rounded="xl">
+              <Button onClick={downloadReport} bg="teal.fg" _hover={{ opacity: 0.9 }} rounded="xl">
                 {t('buttons.download-xlsx')}
               </Button>
             </Stack>

@@ -1,7 +1,7 @@
 import { createEffect, createStore, sample } from 'effector'
-import * as api from './api'
-import { Collection } from './types'
-import { parseCollection, parseCollectionWithResearches } from './helpers'
+import * as api from '../api'
+import { Collection } from '../types'
+import { parseCollection, parseCollectionWithResearches } from '../helpers'
 import { closeResearchesEvent, setResearchesFx } from '@entities'
 
 export const getCollectionsFx = createEffect(async () => (await api.getCollections()).map(parseCollection).reverse())
