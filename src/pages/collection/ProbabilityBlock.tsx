@@ -17,7 +17,7 @@ export const ProbabilityBlock: FC<ProbabilityBlockProps> = ({ probabilityOfPatho
         <Stat.ValueText color={probabilityOfPathology < pathologyLevel ? 'fg.success' : 'fg.error'}>
           {(probabilityOfPathology * 100).toFixed(1)} %
         </Stat.ValueText>
-        <Stat.ValueUnit>- {t('labels.pathology-probability')}</Stat.ValueUnit>
+        <Stat.ValueUnit color="fg.subtle">- {t('labels.pathology-probability')}</Stat.ValueUnit>
       </HStack>
     </Stat.Root>
   )

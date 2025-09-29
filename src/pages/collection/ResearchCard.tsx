@@ -1,13 +1,15 @@
 import { Research } from '@entities'
-import { Badge, Box, Code, Heading, HStack, Spacer, Stack, Text, useTranslation, VStack } from '@shared'
+import { Badge, Box, Code, Heading, HStack, IconX, Spacer, Stack, Text, useTranslation, VStack } from '@shared'
 import { ProbabilityBlock } from './ProbabilityBlock'
+import { IconButton } from '@chakra-ui/react'
 
 type ResearchCardProps = {
   research: Research
   pathologyLevel: number
+  deleteResearch: () => void
 }
 
-export const ResearchCard: FC<ResearchCardProps> = ({ pathologyLevel, research: r }) => {
+export const ResearchCard: FC<ResearchCardProps> = ({ pathologyLevel, research: r, deleteResearch }) => {
   const t = useTranslation('pages.collection')
   let status = t('labels.research-status-unknown')
   let palette = 'gray'
@@ -36,12 +38,14 @@ export const ResearchCard: FC<ResearchCardProps> = ({ pathologyLevel, research: 
 
   return (
     <Stack border="solid 2px" borderColor="gray.200" rounded="2xl" px={4} py={2}>
-      <Stack gap={0}>
-        <HStack justify="space-between">
-          <Heading>{r.filename}</Heading>
-          <Badge colorPalette={palette}>{status}</Badge>
-        </HStack>
-      </Stack>
+      <HStack>
+        <Heading>{r.filename}</Heading>
+        <Spacer />
+        <Badge colorPalette={palette}>{status}</Badge>
+        <IconButton onClick={deleteResearch} variant="ghost" size="2xs">
+          <IconX />
+        </IconButton>
+      </HStack>
       {r.metadata ? (
         <Box>
           <Text fontSize="xs" color="fg.subtle">

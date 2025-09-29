@@ -1,4 +1,4 @@
 import { useUnit } from 'effector-react'
-import { $researches, uploadFilesFx } from '../model'
+import { $researches, deleteResearch, uploadFilesFx } from '../model'
 
-export const useResearches = () => useUnit({ upload: uploadFilesFx, researches: $researches })
+export const useResearches = () => useUnit({ upload: uploadFilesFx, researches: $researches, deleteResearch: deleteResearch })

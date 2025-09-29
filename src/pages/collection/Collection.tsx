@@ -15,7 +15,7 @@ export const Collection: FC = () => {
   const [, navigate] = useLocation()
 
   const { get, close, collection, downloadReport } = useCurrentCollection()
-  const { researches } = useResearches()
+  const { researches, deleteResearch } = useResearches()
 
   useEffect(() => {
     get.fetch(id)
@@ -76,7 +76,12 @@ export const Collection: FC = () => {
           <UploadArea collectionId={collection.id} />
           <Grid overflow="auto" templateColumns={{ base: '1fr', xl: '1fr 1fr' }} gap={3}>
             {researches.map((r) => (
-              <ResearchCard pathologyLevel={collection.pathologyLevel} key={r.id} research={r} />
+              <ResearchCard
+                pathologyLevel={collection.pathologyLevel}
+                key={r.id}
+                research={r}
+                deleteResearch={() => deleteResearch(r.id)}
+              />
             ))}
           </Grid>
         </Stack>
