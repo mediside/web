@@ -82,7 +82,7 @@ export const Collection: FC = () => {
           <UploadArea collectionId={collection.id} />
           <Grid overflow="auto" templateColumns={{ base: '1fr', xl: '1fr 1fr' }} gap={3}>
             {researches.map((r) => (
-              <ResearchCard key={r.id} research={r} />
+              <ResearchCard pathologyLevel={collection.pathologyLevel} key={r.id} research={r} />
             ))}
           </Grid>
         </Stack>

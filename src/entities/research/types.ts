@@ -1,3 +1,5 @@
+import { ResearchStatus } from './constants'
+
 export type FetchedResearch = {
   id: string
   filepath: string
@@ -36,4 +38,5 @@ export type Research = {
     seriesId: string
     filesCount: number
   }
+  status: `${ResearchStatus}`
 }

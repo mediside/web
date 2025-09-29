@@ -16,4 +16,6 @@ export {
   FileUpload,
   useFileUpload,
   Code,
+  Badge,
+  Stat,
 } from '@chakra-ui/react'

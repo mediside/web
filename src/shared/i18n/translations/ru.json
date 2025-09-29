@@ -23,7 +23,22 @@
         "report": "Отчет"
       },
       "paragraphs": {
-        "drug-and-drop": "Перетащите файлы с исследованиями сюда или нажмите на эту область"
+        "drug-and-drop": "Перетащите файлы с исследованиями сюда или нажмите на эту область",
+        "corrupted": "Не удалось открыть ZIP-архив. Убедитесь, что архив не поврежден, и он действительно является ZIP-архивом",
+        "inference-error": "Во время инференса произошла ошибка:"
+      },
+      "labels": {
+        "research-status-corrupted": "архив поврежден",
+        "research-status-inference-unavailable": "ошибка инференса",
+        "research-status-processing": "в обработке",
+        "research-status-queue": "в очереди на обработку",
+        "research-status-done": "обработка завершена",
+        "research-status-unknown": "статус неизвестен",
+        "series-id": "Id серии: {{id}}",
+        "study-id": "Id исследования: {{id}}",
+        "pathology-yes": "Найдены патологии",
+        "pathology-no": "Норма (без патологий)",
+        "pathology-probability": "вероятность патологии"
       },
       "buttons": {
         "download-xlsx": "Скачать .XLSX",
