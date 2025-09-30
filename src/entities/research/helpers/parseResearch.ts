@@ -6,7 +6,7 @@ export const ParseResearch = (r: FetchedResearch): Research => {
 
   if (r.archive_corrupt) {
     status = ResearchStatus.Corrupted
-  } else if (r.probability_of_pathology) {
+  } else if (r.probability_of_pathology !== undefined) {
     status = ResearchStatus.Done
   } else if (r.inference_error) {
     status = ResearchStatus.InferenceUnavailable

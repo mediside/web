@@ -68,7 +68,11 @@ export const Collection: FC = () => {
           {isLoading ? (
             <Skeleton minW={250} flex={1} shadow="ui" rounded="2xl" />
           ) : (
-            <Report pathologyLevel={collection.pathologyLevel} downloadReport={downloadReport} disabled={!researches.length} />
+            <Report
+              pathologyLevel={collection.pathologyLevel}
+              downloadReport={downloadReport}
+              disabled={!researches.filter((r) => r.status === 'done').length}
+            />
           )}
         </Flex>
       </Flex>

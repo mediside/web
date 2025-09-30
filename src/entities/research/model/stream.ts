@@ -34,7 +34,7 @@ const updateStatus = (r: Research) => {
 
   if (r.archiveCorrupt) {
     status = ResearchStatus.Corrupted
-  } else if (r.probabilityOfPathology) {
+  } else if (r.probabilityOfPathology !== undefined) {
     status = ResearchStatus.Done
   } else if (r.inferenceError) {
     status = ResearchStatus.InferenceUnavailable
