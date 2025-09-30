@@ -37,8 +37,8 @@ export const ResearchCard: FC<ResearchCardProps> = ({ pathologyLevel, research: 
 
   return (
     <Stack border="solid 2px" borderColor="gray.200" rounded="2xl" px={4} py={2}>
-      <HStack>
-        <Heading>{r.filename}</Heading>
+      <HStack alignItems="flex-start">
+        <Heading wordBreak="break-all">{r.filename}</Heading>
         <Spacer />
         <Badge colorPalette={palette}>{status}</Badge>
         <IconButton onClick={deleteResearch} variant="ghost" size="2xs">
@@ -47,10 +47,10 @@ export const ResearchCard: FC<ResearchCardProps> = ({ pathologyLevel, research: 
       </HStack>
       {r.metadata ? (
         <Box>
-          <Text fontSize="xs" color="fg.subtle">
+          <Text wordBreak="break-all" fontSize="xs" color="fg.subtle">
             {t('labels.study-id', { id: r.metadata.studyId })}
           </Text>
-          <Text fontSize="xs" color="fg.subtle">
+          <Text wordBreak="break-all" fontSize="xs" color="fg.subtle">
             {t('labels.series-id', { id: r.metadata.seriesId })}
           </Text>
         </Box>
