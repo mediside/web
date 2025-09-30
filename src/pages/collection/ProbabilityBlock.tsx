@@ -1,15 +1,21 @@
-import { Stat, Heading, HStack, useTranslation } from '@shared'
+import { Stat, Heading, HStack, useTranslation, Text, Icon, IconStopwatch } from '@shared'
+
+const SECONDS_IN_MINUTE = 60
 
 type ProbabilityBlockProps = {
   pathologyLevel: number
   probabilityOfPathology: number
+  duration: number
 }
 
-export const ProbabilityBlock: FC<ProbabilityBlockProps> = ({ probabilityOfPathology, pathologyLevel }) => {
+export const ProbabilityBlock: FC<ProbabilityBlockProps> = ({ probabilityOfPathology, pathologyLevel, duration }) => {
   const t = useTranslation('pages.collection')
 
+  const minutes = Math.floor(duration / SECONDS_IN_MINUTE)
+  const seconds = duration % SECONDS_IN_MINUTE
+
   return (
-    <Stat.Root gap={0} bg={probabilityOfPathology < pathologyLevel ? 'green.50' : 'red.50'} px={3} py={2} rounded="xl">
+    <Stat.Root gap={2} bg={probabilityOfPathology < pathologyLevel ? 'green.50' : 'red.50'} px={3} py={2} rounded="xl">
       <Heading size="sm">
         {probabilityOfPathology < pathologyLevel ? t('labels.pathology-no') : t('labels.pathology-yes')}
       </Heading>
@@ -18,6 +24,15 @@ export const ProbabilityBlock: FC<ProbabilityBlockProps> = ({ probabilityOfPatho
           {(probabilityOfPathology * 100).toFixed(1)} %
         </Stat.ValueText>
         <Stat.ValueUnit color="fg.subtle">- {t('labels.pathology-probability')}</Stat.ValueUnit>
+      </HStack>
+      <HStack>
+        <Icon color="fg.muted">
+          <IconStopwatch />
+        </Icon>
+        {minutes > 0 ? <Text>{t('labels.minutes', { count: minutes })}</Text> : null}
+        <Text color="fg.muted" fontSize="sm">
+          {t('labels.seconds', { count: seconds })}
+        </Text>
       </HStack>
     </Stat.Root>
   )

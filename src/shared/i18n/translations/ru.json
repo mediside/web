@@ -53,7 +53,13 @@
         "statistics-processing-now": "В обработке",
         "statistics-processing-finished": "Без ошибок",
         "statistics-processing-err": "С ошибкой",
-        "pathology-recognition-treshold": "Порог распознавания патологии"
+        "pathology-recognition-treshold": "Порог распознавания патологии",
+        "minutes_one": "{{count}} минута",
+        "minutes_few": "{{count}} минуты",
+        "minutes_many": "{{count}} минут",
+        "seconds_one": "{{count}} секунда",
+        "seconds_few": "{{count}} секунды",
+        "seconds_many": "{{count}} секунд"
       },
       "buttons": {
         "download-xlsx": "Скачать .XLSX"

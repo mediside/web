@@ -55,8 +55,12 @@ export const ResearchCard: FC<ResearchCardProps> = ({ pathologyLevel, research: 
           </Text>
         </Box>
       ) : null}
-      {!!r.probabilityOfPathology && (
-        <ProbabilityBlock pathologyLevel={pathologyLevel} probabilityOfPathology={r.probabilityOfPathology} />
+      {!!(r.probabilityOfPathology !== undefined && r.processingDuration !== undefined) && (
+        <ProbabilityBlock
+          duration={r.processingDuration}
+          pathologyLevel={pathologyLevel}
+          probabilityOfPathology={r.probabilityOfPathology}
+        />
       )}
       {!!r.archiveCorrupt && (
         <Text fontStyle="italic" textAlign="center" fontSize="sm" px={10} py={4} color="fg.muted">
