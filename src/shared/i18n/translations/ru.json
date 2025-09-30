@@ -50,7 +50,7 @@
         "statistics-processing-total": "Всего",
         "statistics-processing-corrupt": "Повреждено",
         "statistics-processing-queue": "В очереди",
-        "statistics-processing-now": "В оработке",
+        "statistics-processing-now": "В обработке",
         "statistics-processing-finished": "Без ошибок",
         "statistics-processing-err": "С ошибкой",
         "pathology-recognition-treshold": "Порог распознавания патологии"

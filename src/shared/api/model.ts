@@ -1,4 +1,4 @@
-import { API_URL, Method } from './constants'
+import { API_URL, Method, WS_URL } from './constants'
 
 const fetch = async <T>(method: Method, path: string, body?: object | FormData) => {
   const isData = body instanceof FormData // TODO: убрать проверку в угоду оптимизации
@@ -18,9 +18,12 @@ const download = async (path: string, body?: object) => {
   return response.blob()
 }
 
+const stream = (path: string) => new WebSocket(new URL(path, WS_URL))
+
 export const api = {
   get,
   post,
   delete: del,
   download,
+  stream,
 }

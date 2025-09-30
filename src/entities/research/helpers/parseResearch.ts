@@ -36,6 +36,6 @@ export const ParseResearch = (r: FetchedResearch): Research => {
           filesCount: r.metadata.files_count,
         }
       : undefined,
-    status: status,
+    status,
   }
 }
