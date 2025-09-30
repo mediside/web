@@ -63,9 +63,11 @@ export const ResearchCard: FC<ResearchCardProps> = ({ pathologyLevel, research: 
         />
       )}
       {!!r.archiveCorrupt && (
-        <Text fontStyle="italic" textAlign="center" fontSize="sm" px={10} py={4} color="fg.muted">
-          {t('paragraphs.corrupted')}
-        </Text>
+        <HStack h="full">
+          <Text fontStyle="italic" textAlign="center" fontSize="sm" px={10} py={4} color="fg.muted">
+            {t('paragraphs.corrupted')}
+          </Text>
+        </HStack>
       )}
       {!!r.inferenceError && (
         <VStack>
