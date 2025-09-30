@@ -20,11 +20,11 @@ export const $currentCollection = createStore<Collection | null>(null)
 
 export const deleteCollectionFx = attach({
   source: $currentCollection,
-  effect: (c) => {
+  effect: async (c) => {
     if (!c) {
       return
     }
-    api.deleteCollection(c.id)
+    await api.deleteCollection(c.id)
   },
 })
 
