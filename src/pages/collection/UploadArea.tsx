@@ -21,8 +21,8 @@ export const UploadArea: FC<DicomAreaProps> = ({ collectionId }) => {
   return (
     <FileUpload.RootProvider value={fileUpload} alignItems="stretch">
       <FileUpload.HiddenInput />
-      <FileUpload.Dropzone minH="100px" rounded="2xl">
-        <FileUpload.DropzoneContent gap={5}>
+      <FileUpload.Dropzone cursor="pointer" minH="100px" rounded="2xl">
+        <FileUpload.DropzoneContent pointerEvents="none" gap={5}>
           <Text color="fg.muted">{t('paragraphs.drug-and-drop')}</Text>
         </FileUpload.DropzoneContent>
       </FileUpload.Dropzone>
