@@ -1,5 +1,5 @@
 import { useResearches } from '@entities'
-import { FileUpload, useFileUpload, useTranslation, Text } from '@shared'
+import { FileUpload, useFileUpload, useTranslation, Text, HStack, Spinner } from '@shared'
 import { useEffect } from 'react'
 
 type DicomAreaProps = {
@@ -13,17 +13,24 @@ export const UploadArea: FC<DicomAreaProps> = ({ collectionId }) => {
 
   useEffect(() => {
     if (fileUpload.acceptedFiles.length) {
-      researches.upload({ collectionId, files: fileUpload.acceptedFiles })
+      researches.upload.fetch({ collectionId, files: fileUpload.acceptedFiles })
       fileUpload.clearFiles()
     }
   }, [fileUpload.acceptedFiles])
 
   return (
     <FileUpload.RootProvider value={fileUpload} alignItems="stretch">
-      <FileUpload.HiddenInput />
-      <FileUpload.Dropzone cursor="pointer" minH="100px" rounded="2xl">
+      <FileUpload.HiddenInput disabled={researches.upload.pending} />
+      <FileUpload.Dropzone cursor={researches.upload.pending ? 'no-drop' : 'pointer'} minH="100px" rounded="2xl">
         <FileUpload.DropzoneContent pointerEvents="none" gap={5}>
-          <Text color="fg.muted">{t('paragraphs.drug-and-drop')}</Text>
+          {researches.upload.pending ? (
+            <HStack>
+              <Spinner />
+              <Text color="fg.muted">{t('paragraphs.uploading')}</Text>
+            </HStack>
+          ) : (
+            <Text color="fg.muted">{t('paragraphs.drug-and-drop')}</Text>
+          )}
         </FileUpload.DropzoneContent>
       </FileUpload.Dropzone>
     </FileUpload.RootProvider>

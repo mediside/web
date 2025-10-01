@@ -12,6 +12,5 @@ export const uploadFilesFx = createEffect(async ({ files, collectionId }: Upload
     formData.append('files', files[i])
   }
 
-  const resp = await api.uploadFiles(collectionId, formData)
-  console.log('Upload files resp', resp)
+  await api.uploadFiles(collectionId, formData)
 })
