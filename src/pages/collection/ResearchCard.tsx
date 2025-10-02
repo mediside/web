@@ -41,7 +41,12 @@ export const ResearchCard: FC<ResearchCardProps> = ({ pathologyLevel, research: 
         <Heading wordBreak="break-all">{r.filename}</Heading>
         <Spacer />
         <Badge colorPalette={palette}>{status}</Badge>
-        <IconButton onClick={deleteResearch} variant="ghost" size="2xs">
+        <IconButton
+          disabled={r.status === 'inProcessing' || r.status === 'inQueue'}
+          onClick={deleteResearch}
+          variant="ghost"
+          size="2xs"
+        >
           <IconX />
         </IconButton>
       </HStack>
