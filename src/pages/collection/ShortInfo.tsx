@@ -1,5 +1,5 @@
 import { Collection, CollectionTitle } from '@features'
-import { HStack, Icon, IconButton, IconDots, IconX, Menu, Portal, Stack, Text } from '@shared'
+import { HStack, Icon, IconButton, IconDots, IconX, Menu, Portal, Stack, Text, useTranslation } from '@shared'
 
 type ShortInfoProps = {
   collection: Collection
@@ -7,6 +7,8 @@ type ShortInfoProps = {
 }
 
 export const ShortInfo: FC<ShortInfoProps> = ({ collection, deleteCollection }) => {
+  const t = useTranslation('pages.collection')
+
   return (
     <Stack bg="gray.contrast" flex={1} p={6} rounded="2xl" shadow="ui">
       <HStack justify="space-between" alignItems="flex-start">
@@ -24,7 +26,7 @@ export const ShortInfo: FC<ShortInfoProps> = ({ collection, deleteCollection }) 
                   <Icon size="sm">
                     <IconX />
                   </Icon>
-                  <Text>Удалить</Text>
+                  <Text>{t('buttons.delete')}</Text>
                 </Menu.Item>
               </Menu.Content>
             </Menu.Positioner>

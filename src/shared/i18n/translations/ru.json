@@ -65,7 +65,8 @@
         "inference-file": "файл"
       },
       "buttons": {
-        "download-xlsx": "Скачать .XLSX"
+        "download-xlsx": "Скачать .XLSX",
+        "delete": "Удалить"
       }
     },
     "about": {
