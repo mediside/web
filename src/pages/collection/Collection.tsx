@@ -1,18 +1,17 @@
 import { useCurrentCollection } from '@features'
-import { Flex, Grid, HStack, Icon, IconArrowLeft, RoutePath, Skeleton, Stack, Text, useTranslation, VStack } from '@shared'
+import { Flex, HStack, Icon, IconArrowLeft, RoutePath, Skeleton, Stack } from '@shared'
 import { useEffect } from 'react'
 import { useLocation, useParams } from 'wouter'
 import { UploadArea } from './UploadArea'
 import { InferenceProgress, useResearches } from '@entities'
-import { ResearchCard } from './ResearchCard'
 import { Statistics } from './Statistics'
 import { Report } from './Report'
 import { ShortInfo } from './ShortInfo'
+import { ResearchesWithPagination } from './ResearchesWithPagination'
 
 type WithId = { id: string }
 
 export const Collection: FC = () => {
-  const t = useTranslation('pages.collection')
   const { id } = useParams<WithId>()
   const [, navigate] = useLocation()
 
@@ -84,24 +83,11 @@ export const Collection: FC = () => {
         <Stack minH={600} w="full" bg="gray.contrast" p={6} rounded="2xl" shadow="ui" gap={6}>
           <UploadArea collectionId={collection.id} />
           <InferenceProgress />
-          {researches.length ? (
-            <Grid overflow="auto" templateColumns={{ base: '1fr', xl: '1fr 1fr' }} gap={3}>
-              {researches.map((r) => (
-                <ResearchCard
-                  pathologyLevel={collection.pathologyLevel}
-                  key={r.id}
-                  research={r}
-                  deleteResearch={() => deleteResearch(r.id)}
-                />
-              ))}
-            </Grid>
-          ) : (
-            <VStack h="full" justify="center">
-              <Text color="fg.muted" textAlign="center" maxW={600}>
-                {t('paragraphs.no-researches')}
-              </Text>
-            </VStack>
-          )}
+          <ResearchesWithPagination
+            researches={researches}
+            pathologyLevel={collection.pathologyLevel}
+            deleteResearch={deleteResearch}
+          />
         </Stack>
       )}
     </Flex>

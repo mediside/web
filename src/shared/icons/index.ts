@@ -3,5 +3,7 @@ import IconX from './x.svg?react'
 import IconDots from './dots.svg?react'
 import IconStopwatch from './stopwatch.svg?react'
 import IconLogo from './logo.svg?react'
+import IconChevronLeft from './chevron-left.svg?react'
+import IconChevronRight from './chevron-right.svg?react'
 
-export { IconArrowLeft, IconX, IconDots, IconStopwatch, IconLogo }
+export { IconArrowLeft, IconX, IconDots, IconStopwatch, IconLogo, IconChevronLeft, IconChevronRight }

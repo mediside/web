@@ -27,4 +27,6 @@ export {
   Spinner,
   Switch,
   Progress,
+  Pagination,
+  ButtonGroup,
 } from '@chakra-ui/react'
