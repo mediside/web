@@ -15,7 +15,17 @@ export const ProbabilityBlock: FC<ProbabilityBlockProps> = ({ probabilityOfPatho
   const seconds = duration % SECONDS_IN_MINUTE
 
   return (
-    <Stat.Root gap={2} bg={probabilityOfPathology < pathologyLevel ? 'green.50' : 'red.50'} px={3} py={2} rounded="xl">
+    <Stat.Root
+      gap={2}
+      bg={
+        probabilityOfPathology < pathologyLevel
+          ? { _light: 'green.50', _dark: 'green.900' }
+          : { _light: 'red.50', _dark: 'red.900' }
+      }
+      px={3}
+      py={2}
+      rounded="xl"
+    >
       <Heading size="sm">
         {probabilityOfPathology < pathologyLevel ? t('labels.pathology-no') : t('labels.pathology-yes')}
       </Heading>

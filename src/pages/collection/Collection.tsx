@@ -48,7 +48,7 @@ export const Collection: FC = () => {
             </Icon>
           </HStack>
           {isLoading ? (
-            <Skeleton flex={1} shadow="ui" rounded="2xl" />
+            <Skeleton flex={1} shadow="ui" rounded="2xl" minH="116px" />
           ) : (
             <ShortInfo
               deleteCollection={async () => {

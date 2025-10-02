@@ -25,4 +25,5 @@ export {
   Portal,
   IconButton,
   Spinner,
+  Switch,
 } from '@chakra-ui/react'

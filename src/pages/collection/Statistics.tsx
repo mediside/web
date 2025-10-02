@@ -75,7 +75,7 @@ export const Statistics: FC<StatisticsProps> = ({ researches, pathologyLevel }) 
         </GridItem>
         <Stack>
           <Heading size="md">{t('titles.statistics-recognition')}</Heading>
-          <VStack bg="gray.50" rounded="xl" p={2}>
+          <VStack bg={{ _light: 'gray.50', _dark: 'gray.800' }} rounded="xl" p={2}>
             <Text color="fg.muted" textAlign="center" fontSize="xs">
               {t('paragraphs.statistics-total-percent-before')}
             </Text>
