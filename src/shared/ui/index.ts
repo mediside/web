@@ -26,4 +26,5 @@ export {
   IconButton,
   Spinner,
   Switch,
+  Progress,
 } from '@chakra-ui/react'

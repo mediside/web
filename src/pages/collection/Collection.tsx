@@ -3,7 +3,7 @@ import { Flex, Grid, HStack, Icon, IconArrowLeft, RoutePath, Skeleton, Stack, Te
 import { useEffect } from 'react'
 import { useLocation, useParams } from 'wouter'
 import { UploadArea } from './UploadArea'
-import { useResearches } from '@entities'
+import { InferenceProgress, useResearches } from '@entities'
 import { ResearchCard } from './ResearchCard'
 import { Statistics } from './Statistics'
 import { Report } from './Report'
@@ -83,6 +83,7 @@ export const Collection: FC = () => {
       ) : (
         <Stack minH={600} w="full" bg="gray.contrast" p={6} rounded="2xl" shadow="ui" gap={6}>
           <UploadArea collectionId={collection.id} />
+          <InferenceProgress />
           {researches.length ? (
             <Grid overflow="auto" templateColumns={{ base: '1fr', xl: '1fr 1fr' }} gap={3}>
               {researches.map((r) => (

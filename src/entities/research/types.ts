@@ -88,3 +88,19 @@ export type ResearchStreamMsg = {
   }
   status: `${ResearchStatus}`
 }
+
+export type FetchedProgressStreamMsg = {
+  research_id: string
+  collection_id: string
+  percent: number
+  step: string
+  done: boolean
+}
+
+export type ProgressStreamMsg = {
+  researchId: string
+  collectionId: string
+  percent: number
+  step: string
+  done: boolean
+}

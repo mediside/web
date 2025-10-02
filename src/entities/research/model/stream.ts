@@ -1,11 +1,11 @@
 import { createEffect, sample } from 'effector'
-import { FetchedResearchStreamMsg, Research } from '../types'
-import { ParseResearchStreamMsg, updateStatus } from '../helpers'
+import { Research } from '../types'
+import { parseResearchStreamMsg, updateStatus } from '../helpers'
 import { $researches } from './researches'
 import * as api from '../api'
 import { $currentCollectionId } from './collection'
 
-const streamFx = createEffect((msg: FetchedResearchStreamMsg) => ParseResearchStreamMsg(msg))
+const streamFx = createEffect(parseResearchStreamMsg)
 
 api.connectResearchStream(streamFx)
 

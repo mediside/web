@@ -1,4 +1,5 @@
 export { uploadFilesFx } from './upload'
 export { setResearchesFx, closeResearchesEvent, $researches, deleteResearch } from './researches'
 export { $currentCollectionId } from './collection'
+export { $progress } from './progress'
 import './stream'

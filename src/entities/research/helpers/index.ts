@@ -1,3 +1,4 @@
 export { ParseResearch } from './parseResearch'
-export { ParseResearchStreamMsg } from './parseResearchStreamMsg'
+export { parseResearchStreamMsg } from './parseResearchStreamMsg'
 export { updateStatus } from './updateStatus'
+export { parseProgress } from './parseProgress'

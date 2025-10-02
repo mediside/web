@@ -1,7 +1,7 @@
 import { ResearchStatus } from '../constants'
 import { FetchedResearchStreamMsg, ResearchStreamMsg } from '../types'
 
-export const ParseResearchStreamMsg = (r: FetchedResearchStreamMsg): ResearchStreamMsg => ({
+export const parseResearchStreamMsg = (r: FetchedResearchStreamMsg): ResearchStreamMsg => ({
   id: r.id,
   collectionId: r.collection_id,
   filepath: r.filepath,

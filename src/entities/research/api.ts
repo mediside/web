@@ -1,5 +1,5 @@
 import { api } from '@shared'
-import { FetchedResearchStreamMsg, ResearchStreamMsg } from './types'
+import { FetchedProgressStreamMsg, FetchedResearchStreamMsg, ProgressStreamMsg, ResearchStreamMsg } from './types'
 import { Effect } from 'effector'
 
 export const uploadFiles = async (collectionId: string, data: FormData) =>
@@ -17,6 +17,32 @@ export const connectResearchStream = (updater: Effect<FetchedResearchStreamMsg, 
 
   socket.onmessage = function (event) {
     const msg: FetchedResearchStreamMsg = JSON.parse(event.data)
+    updater(msg)
+  }
+
+  socket.onerror = function (error) {
+    console.error(suburl, 'WebSocket error:', error)
+  }
+
+  socket.onclose = function (event) {
+    if (event.wasClean) {
+      console.log(suburl, 'connection clean close', event)
+    } else {
+      console.log(suburl, 'disconnected', event)
+    }
+  }
+}
+
+export const connectInferenceStream = (updater: Effect<FetchedProgressStreamMsg, ProgressStreamMsg, Error>) => {
+  const suburl = 'inference/progress/ws/'
+  const socket = api.stream(suburl)
+
+  socket.onopen = function () {
+    console.log(suburl, 'connected')
+  }
+
+  socket.onmessage = function (event) {
+    const msg: FetchedProgressStreamMsg = JSON.parse(event.data)
     updater(msg)
   }
 

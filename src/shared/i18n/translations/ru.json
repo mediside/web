@@ -57,7 +57,12 @@
         "minutes_many": "{{count}} минут",
         "seconds_one": "{{count}} секунда",
         "seconds_few": "{{count}} секунды",
-        "seconds_many": "{{count}} секунд"
+        "seconds_many": "{{count}} секунд",
+        "inference-done": "распознавание завершено",
+        "inference-not-started": "распознавание не проводилось",
+        "inference-in-progress": "идет распознавание",
+        "inference-step": "шаг",
+        "inference-file": "файл"
       },
       "buttons": {
         "download-xlsx": "Скачать .XLSX"
