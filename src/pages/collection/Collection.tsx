@@ -71,7 +71,7 @@ export const Collection: FC = () => {
             <Report
               pathologyLevel={collection.pathologyLevel}
               downloadReport={downloadReport}
-              disabled={!researches.filter((r) => r.status === 'done').length}
+              disabled={!researches.filter((r) => r.status === 'done' || r.status === 'inferenceUavailable').length}
             />
           )}
         </Flex>
