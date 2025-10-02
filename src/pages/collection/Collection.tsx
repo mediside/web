@@ -1,7 +1,6 @@
 import { useCurrentCollection } from '@features'
-import { Flex, HStack, Icon, IconArrowLeft, RoutePath, Skeleton, Stack } from '@shared'
+import { Flex, HStack, Icon, IconArrowLeft, RoutePath, Skeleton, Stack, useLocation } from '@shared'
 import { useEffect } from 'react'
-import { useLocation, useParams } from 'wouter'
 import { UploadArea } from './UploadArea'
 import { InferenceProgress, useResearches } from '@entities'
 import { Statistics } from './Statistics'
@@ -9,17 +8,18 @@ import { Report } from './Report'
 import { ShortInfo } from './ShortInfo'
 import { ResearchesWithPagination } from './ResearchesWithPagination'
 
-type WithId = { id: string }
-
 export const Collection: FC = () => {
-  const { id } = useParams<WithId>()
-  const [, navigate] = useLocation()
+  const [loc, navigate] = useLocation()
 
   const { get, close, collection, downloadReport, deleteCollection } = useCurrentCollection()
   const { researches, deleteResearch } = useResearches()
 
   useEffect(() => {
-    get.fetch(id)
+    // TODO: перестал работать хук useParams после добавления анимаций
+    const id = loc.split('/').at(-1)
+    if (id !== undefined) {
+      get.fetch(id)
+    }
 
     return close
   }, [])
