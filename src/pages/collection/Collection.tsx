@@ -81,7 +81,7 @@ export const Collection: FC = () => {
           <Skeleton w="full" h="full" shadow="ui" rounded="2xl" />
         </Stack>
       ) : (
-        <Stack minH={400} w="full" bg="gray.contrast" p={6} rounded="2xl" shadow="ui" gap={6}>
+        <Stack minH={600} w="full" bg="gray.contrast" p={6} rounded="2xl" shadow="ui" gap={6}>
           <UploadArea collectionId={collection.id} />
           {researches.length ? (
             <Grid overflow="auto" templateColumns={{ base: '1fr', xl: '1fr 1fr' }} gap={3}>
