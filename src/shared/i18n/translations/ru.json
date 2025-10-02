@@ -62,7 +62,9 @@
         "inference-not-started": "распознавание не проводилось",
         "inference-in-progress": "идет распознавание",
         "inference-step": "шаг",
-        "inference-file": "файл"
+        "inference-file": "файл",
+        "sort-default": "По умолчанию",
+        "sort-pathology": "Сначала c патологиями"
       },
       "buttons": {
         "download-xlsx": "Скачать .XLSX",

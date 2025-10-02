@@ -29,4 +29,5 @@ export {
   Progress,
   Pagination,
   ButtonGroup,
+  Tabs,
 } from '@chakra-ui/react'

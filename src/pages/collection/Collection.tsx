@@ -80,7 +80,7 @@ export const Collection: FC = () => {
           <Skeleton w="full" h="full" shadow="ui" rounded="2xl" />
         </Stack>
       ) : (
-        <Stack minH={600} w="full" bg="gray.contrast" p={6} rounded="2xl" shadow="ui" gap={6}>
+        <Stack minH={600} w="full" bg="gray.contrast" p={6} rounded="2xl" shadow="ui" gap={4}>
           <UploadArea collectionId={collection.id} />
           <InferenceProgress />
           <ResearchesWithPagination
