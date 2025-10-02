@@ -79,12 +79,6 @@ export const ResearchCard: FC<ResearchCardProps> = ({ pathologyLevel, research: 
           </Code>
         </VStack>
       )}
-      <Spacer />
-      {r.metadata && (
-        <Text color="fg.subtle" w="full" textAlign="center" fontSize="xs">
-          {t('labels.files', { count: r.metadata.filesCount })}
-        </Text>
-      )}
     </Stack>
   )
 }
