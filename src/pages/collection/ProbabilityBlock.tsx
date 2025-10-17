@@ -39,9 +39,9 @@ export const ProbabilityBlock: FC<ProbabilityBlockProps> = ({ probabilityOfPatho
         <Icon color="fg.muted">
           <IconStopwatch />
         </Icon>
-        {minutes > 0 ? <Text>{t('labels.minutes', { count: minutes })}</Text> : null}
+
         <Text color="fg.muted" fontSize="sm">
-          {t('labels.seconds', { count: seconds })}
+          {minutes > 0 ? t('labels.minutes', { count: minutes }) : null} {t('labels.seconds', { count: seconds })}
         </Text>
       </HStack>
     </Stat.Root>
