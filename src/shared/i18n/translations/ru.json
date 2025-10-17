@@ -26,7 +26,8 @@
       },
       "paragraphs": {
         "drug-and-drop": "Перетащите файлы с исследованиями сюда или нажмите на эту область",
-        "uploading": "Загрузка файлов на сервер...",
+        "uploading-one": "Загрузка файла {{filename}} на сервер",
+        "uploading": "Загружено {{current}} из {{total}} файлов, сейчас загружается {{filename}}",
         "corrupted": "Не удалось открыть ZIP-архив. Убедитесь, что архив не поврежден, и он действительно является ZIP-архивом",
         "inference-error": "Во время инференса произошла ошибка:",
         "statistics-total-percent-before": "из обработанных без ошибок снимков",
@@ -64,7 +65,8 @@
         "inference-step": "шаг",
         "inference-file": "файл",
         "sort-default": "По умолчанию",
-        "sort-pathology": "Сначала c патологиями"
+        "sort-pathology": "Сначала c патологиями",
+        "upload-time-left": "осталось"
       },
       "buttons": {
         "download-xlsx": "Скачать .XLSX",

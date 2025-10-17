@@ -2,8 +2,8 @@ import { api } from '@shared'
 import { FetchedProgressStreamMsg, FetchedResearchStreamMsg, ProgressStreamMsg, ResearchStreamMsg } from './types'
 import { Effect } from 'effector'
 
-export const uploadFiles = async (collectionId: string, data: FormData) =>
-  (await api.post(`researches/upload?collection_id=${collectionId}`, data)).data
+export const uploadFiles = async (collectionId: string, data: FormData, onprogress: Parameters<typeof api.upload>[2]) =>
+  await api.upload(`researches/upload?collection_id=${collectionId}`, data, onprogress)
 
 export const deleteResearch = async (id: string) => await api.delete(`researches/${id}`)
 
