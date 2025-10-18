@@ -5,7 +5,10 @@ import {
   GridItem,
   Heading,
   HStack,
+  Icon,
+  IconBookmark,
   IconFolderOpen,
+  PackagesIcon,
   RoutePath,
   Separator,
   Skeleton,
@@ -41,14 +44,24 @@ export const Main: FC = () => {
       <Stack gap={10}>
         <Grid gap={6} templateColumns={{ md: '1fr 300px' }}>
           <Card rounded="4xl" h={300} bg="gray.contrast" onClick={createHandler}>
-            <Heading size="4xl" color="teal.fg">
+            <Heading zIndex={1} size="4xl" color="teal.fg">
               {t('titles.classify')}
             </Heading>
-            <Text color="teal.solid">{t('paragraphs.classify')}</Text>
+            <Text zIndex={1} color="teal.solid">
+              {t('paragraphs.classify')}
+            </Text>
+            <Icon position="absolute" opacity={0.05} right={-40} bottom={-20}>
+              <PackagesIcon width={400} height={400} />
+            </Icon>
           </Card>
           <Card rounded="4xl" bg="gray.contrast" onClick={() => navigate(RoutePath.About)}>
-            <Heading size="4xl">{t('titles.about')}</Heading>
-            <Text>{t('paragraphs.about')}</Text>
+            <Heading zIndex={1} size="4xl">
+              {t('titles.about')}
+            </Heading>
+            <Text zIndex={1}> {t('paragraphs.about')}</Text>
+            <Icon position="absolute" opacity={0.85} right={10} top={0}>
+              <IconBookmark />
+            </Icon>
           </Card>
         </Grid>
         <HStack>

@@ -11,10 +11,16 @@ interface ContactFormProps {
 
 const LEVEL_MIN = 0
 const LEVEL_MAX = 100
+const MAX_LENGTH = 5
 
 // TODO: вынести в shared
 export const contactDialog = createOverlay<ContactFormProps>(
   ({ title, description, action, onAction, defaultValue, ...props }) => {
+    // TODO: возможно стоит переделать вероятность патологии с float32 на uint
+    if (defaultValue.length > MAX_LENGTH) {
+      defaultValue = defaultValue.slice(0, 5)
+    }
+
     const [value, setValue] = useState(defaultValue)
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -42,7 +48,7 @@ export const contactDialog = createOverlay<ContactFormProps>(
                     <Text>{description}</Text>
                     <NumberInput.Root value={value} min={LEVEL_MIN} max={LEVEL_MAX} onValueChange={(e) => setValue(e.value)}>
                       <NumberInput.Control />
-                      <NumberInput.Input rounded="xl" />
+                      <NumberInput.Input maxLength={MAX_LENGTH} rounded="xl" />
                     </NumberInput.Root>
                     <Button disabled={disabled} bg="teal.fg" _hover={{ opacity: 0.9 }} rounded="xl" type="submit">
                       {action}

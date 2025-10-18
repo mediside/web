@@ -1,4 +1,4 @@
-import { Heading, HStack, Icon, IconArrowLeft, RoutePath, Stack, useTranslation, Text, Center } from '@shared'
+import { Heading, HStack, Icon, IconArrowLeft, RoutePath, Stack, useTranslation, Text, Center, IconBookmark } from '@shared'
 import { useLocation } from 'wouter'
 import { ThemeSetting } from './ThemeSetting'
 
@@ -8,20 +8,22 @@ export const About: FC = () => {
 
   return (
     <Center>
-      <Stack maxW="breakpoint-xl" bg="fg.inverted" p="6" rounded="4xl">
+      <Stack position="relative" maxW="breakpoint-xl" bg="fg.inverted" p="6" rounded="4xl">
+        <Icon position="absolute" opacity={0.85} right={10} top={0}>
+          <IconBookmark />
+        </Icon>
         <HStack
           justify="center"
           transition="all 0.2s ease-in-out"
           cursor="pointer"
           _hover={{ shadow: 'uiHover' }}
-          bg="teal.muted"
+          bg="teal.solid"
           w={20}
           p={6}
           rounded="2xl"
-          shadow="ui"
           onClick={() => navigate(RoutePath.Main)}
         >
-          <Icon size="2xl">
+          <Icon color="gray.contrast" size="2xl">
             <IconArrowLeft />
           </Icon>
         </HStack>

@@ -10,6 +10,8 @@ import IconList from './list.svg?react'
 import IconEdit from './edit.svg?react'
 import IconStack2 from './stack-2.svg?react'
 import IconFolderOpen from './folder-open.svg?react'
+import IconBookmark from './bookmark.svg?react'
+import PackagesIcon from './packages.svg?react'
 
 export {
   IconArrowLeft,
@@ -24,4 +26,6 @@ export {
   IconEdit,
   IconStack2,
   IconFolderOpen,
+  IconBookmark,
+  PackagesIcon,
 }

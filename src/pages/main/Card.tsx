@@ -11,6 +11,8 @@ type CardProps = {
 export const Card: FC<PropsWithChildren & CardProps> = ({ children, h, bg, onClick, rounded }) => {
   return (
     <Stack
+      position="relative"
+      overflow="hidden"
       cursor="pointer"
       _hover={{ shadow: 'uiHover' }}
       transition="all 0.2s ease-in-out"

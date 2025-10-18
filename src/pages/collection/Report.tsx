@@ -10,7 +10,6 @@ type ReportProps = {
 
 export const Report: FC<ReportProps> = ({ downloadReport, pathologyLevel, disabled }) => {
   const t = useTranslation('pages.collection')
-
   const { update } = useCurrentCollection()
 
   return (
@@ -19,7 +18,7 @@ export const Report: FC<ReportProps> = ({ downloadReport, pathologyLevel, disabl
       <HStack>
         <Text fontSize="sm">{t('labels.pathology-recognition-treshold')}:</Text>
         <Badge variant="solid" size="lg">
-          {pathologyLevel * 100} %
+          {(pathologyLevel * 100).toFixed()} %
         </Badge>
         <IconButton
           onClick={() =>
