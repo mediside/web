@@ -50,7 +50,7 @@ export const UploadArea: FC<DicomAreaProps> = ({ collectionId }) => {
               </HStack>
               {info?.remainingTs ? (
                 <Text color="fg.muted" fontSize="sm">
-                  {minutes > 0 ? t('labels.minutes', { count: minutes }) : null} {t('labels.seconds', { count: seconds })}{' '}
+                  ~ {minutes > 0 ? t('labels.minutes', { count: minutes }) : null} {t('labels.seconds', { count: seconds })}{' '}
                   {t('labels.upload-time-left')}
                 </Text>
               ) : null}
