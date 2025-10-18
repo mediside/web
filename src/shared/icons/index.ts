@@ -8,6 +8,8 @@ import IconChevronRight from './chevron-right.svg?react'
 import IconMoodWrrr from './mood-wrrr.svg?react'
 import IconList from './list.svg?react'
 import IconEdit from './edit.svg?react'
+import IconStack2 from './stack-2.svg?react'
+import IconFolderOpen from './folder-open.svg?react'
 
 export {
   IconArrowLeft,
@@ -20,4 +22,6 @@ export {
   IconMoodWrrr,
   IconList,
   IconEdit,
+  IconStack2,
+  IconFolderOpen,
 }

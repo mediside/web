@@ -33,4 +33,5 @@ export {
   Dialog,
   createOverlay,
   NumberInput,
+  EmptyState,
 } from '@chakra-ui/react'

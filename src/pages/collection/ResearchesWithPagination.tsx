@@ -6,7 +6,6 @@ import {
   IconButton,
   IconChevronLeft,
   IconChevronRight,
-  Text,
   useTranslation,
   ButtonGroup,
   Spacer,
@@ -14,6 +13,8 @@ import {
   Icon,
   IconList,
   IconMoodWrrr,
+  EmptyState,
+  IconStack2,
 } from '@shared'
 import { ResearchCard } from './ResearchCard'
 import { useState } from 'react'
@@ -84,16 +85,21 @@ export const ResearchesWithPagination: FC<ResearchesWithPagination> = ({ researc
           ))}
         </Grid>
       ) : (
-        <VStack h="full" justify="center">
-          <Text color="fg.muted" textAlign="center" maxW={600}>
-            {t('paragraphs.no-researches')}
-          </Text>
-        </VStack>
+        <EmptyState.Root h="full" size="lg">
+          <EmptyState.Content h="full">
+            <EmptyState.Indicator>
+              <IconStack2 />
+            </EmptyState.Indicator>
+            <EmptyState.Title>{t('titles.no-researches')}</EmptyState.Title>
+            <EmptyState.Description textAlign="center" maxW={600}>
+              {t('paragraphs.no-researches')}
+            </EmptyState.Description>
+          </EmptyState.Content>
+        </EmptyState.Root>
       )}
       {researches.length > PAGE_SIZE && (
         <>
           <Spacer />
-
           <VStack>
             <Pagination.Root
               pageSize={PAGE_SIZE}
@@ -108,11 +114,9 @@ export const ResearchesWithPagination: FC<ResearchesWithPagination> = ({ researc
                     <IconChevronLeft />
                   </IconButton>
                 </Pagination.PrevTrigger>
-
                 <Pagination.Items
                   render={(page) => <IconButton variant={{ base: 'ghost', _selected: 'solid' }}>{page.value}</IconButton>}
                 />
-
                 <Pagination.NextTrigger asChild>
                   <IconButton>
                     <IconChevronRight />

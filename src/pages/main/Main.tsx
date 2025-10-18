@@ -1,4 +1,18 @@
-import { Center, Grid, GridItem, Heading, HStack, RoutePath, Separator, Skeleton, Stack, Text, useTranslation } from '@shared'
+import {
+  Center,
+  EmptyState,
+  Grid,
+  GridItem,
+  Heading,
+  HStack,
+  IconFolderOpen,
+  RoutePath,
+  Separator,
+  Skeleton,
+  Stack,
+  Text,
+  useTranslation,
+} from '@shared'
 import { Card } from './Card'
 import { useLocation } from 'wouter'
 import { useCollections } from '@features'
@@ -52,11 +66,17 @@ export const Main: FC = () => {
               collections.collections.map((r) => <CollectionCard collection={r} key={r.id} />)
             ) : (
               <GridItem colSpan={{ sm: 2, md: 3, xl: 4 }}>
-                <Center>
-                  <Text color="fg.muted" textAlign="center" maxW={600}>
-                    {t('paragraphs.no-collections', { cardTitle: t('titles.classify') })}
-                  </Text>
-                </Center>
+                <EmptyState.Root h="full" size="lg">
+                  <EmptyState.Content h="full">
+                    <EmptyState.Indicator>
+                      <IconFolderOpen />
+                    </EmptyState.Indicator>
+                    <EmptyState.Title>{t('titles.no-collections')}</EmptyState.Title>
+                    <EmptyState.Description textAlign="center" maxW={600}>
+                      {t('paragraphs.no-collections', { cardTitle: t('titles.classify') })}
+                    </EmptyState.Description>
+                  </EmptyState.Content>
+                </EmptyState.Root>
               </GridItem>
             )}
           </Grid>
