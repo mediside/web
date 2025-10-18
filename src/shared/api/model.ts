@@ -21,6 +21,8 @@ const get = async <T>(path: string, body?: object) => fetch<T>(Method.GET, path,
 
 const post = async <T>(path: string, body?: object) => fetch<T>(Method.POST, path, body)
 
+const patch = async <T>(path: string, body?: object) => fetch<T>(Method.PATCH, path, body)
+
 const del = async <T>(path: string, body?: object) => fetch<T>(Method.DELETE, path, body)
 
 const download = async (path: string, body?: object) => {
@@ -33,6 +35,7 @@ const stream = (path: string) => new WebSocket(new URL(path, WS_URL))
 export const api = {
   get,
   post,
+  patch,
   delete: del,
   download,
   upload,

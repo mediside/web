@@ -30,4 +30,7 @@ export {
   Pagination,
   ButtonGroup,
   Tabs,
+  Dialog,
+  createOverlay,
+  NumberInput,
 } from '@chakra-ui/react'
