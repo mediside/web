@@ -1,4 +1,4 @@
-import { Heading, HStack, Text, Badge, Button, Stack, Spacer, useTranslation, IconEdit, IconButton } from '@shared'
+import { Heading, HStack, Text, Badge, Button, Stack, Spacer, useTranslation, IconEdit, IconButton, Tooltip } from '@shared'
 import { contactDialog } from './Modal'
 import { useCurrentCollection } from '@features'
 
@@ -20,21 +20,23 @@ export const Report: FC<ReportProps> = ({ downloadReport, pathologyLevel, disabl
         <Badge variant="solid" size="lg">
           {(pathologyLevel * 100).toFixed()} %
         </Badge>
-        <IconButton
-          onClick={() =>
-            contactDialog.open('form', {
-              title: t('titles.set-level'),
-              defaultValue: `${pathologyLevel * 100}`,
-              description: t('paragraphs.set-level'),
-              action: t('buttons.set-level'),
-              onAction: (v) => update({ pathologyLevel: +v / 100 }),
-            })
-          }
-          variant="subtle"
-          rounded="xl"
-        >
-          <IconEdit />
-        </IconButton>
+        <Tooltip positioning={{ placement: 'top' }} showArrow content={t('labels.edit-level-tooltip')}>
+          <IconButton
+            onClick={() =>
+              contactDialog.open('form', {
+                title: t('titles.set-level'),
+                defaultValue: `${pathologyLevel * 100}`,
+                description: t('paragraphs.set-level'),
+                action: t('buttons.set-level'),
+                onAction: (v) => update({ pathologyLevel: +v / 100 }),
+              })
+            }
+            variant="subtle"
+            rounded="xl"
+          >
+            <IconEdit />
+          </IconButton>
+        </Tooltip>
       </HStack>
       <Spacer />
       <Button disabled={disabled} mt={2} onClick={downloadReport} bg="teal.fg" _hover={{ opacity: 0.9 }} rounded="xl">

@@ -10,7 +10,7 @@ export const checkExists = async (collectionId: string, filename: string): Promi
 
 export const deleteResearch = async (id: string) => await api.delete(`researches/${id}`)
 
-export const connectResearchStream = (updater: Effect<FetchedResearchStreamMsg, ResearchStreamMsg, Error>) => {
+export const connectResearchStream = (updateHandler: Effect<FetchedResearchStreamMsg, ResearchStreamMsg, Error>) => {
   const suburl = 'researches/update/ws/'
   const socket = api.stream(suburl)
 
@@ -20,7 +20,7 @@ export const connectResearchStream = (updater: Effect<FetchedResearchStreamMsg, 
 
   socket.onmessage = function (event) {
     const msg: FetchedResearchStreamMsg = JSON.parse(event.data)
-    updater(msg)
+    updateHandler(msg)
   }
 
   socket.onerror = function (error) {

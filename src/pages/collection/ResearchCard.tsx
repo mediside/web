@@ -1,5 +1,19 @@
 import { Research } from '@entities'
-import { Badge, Box, Code, Heading, HStack, IconButton, IconX, Spacer, Stack, Text, useTranslation, VStack } from '@shared'
+import {
+  Badge,
+  Box,
+  Code,
+  Heading,
+  HStack,
+  IconButton,
+  IconX,
+  Spacer,
+  Stack,
+  Text,
+  Tooltip,
+  useTranslation,
+  VStack,
+} from '@shared'
 import { ProbabilityBlock } from './ProbabilityBlock'
 
 type ResearchCardProps = {
@@ -41,14 +55,16 @@ export const ResearchCard: FC<ResearchCardProps> = ({ pathologyLevel, research: 
         <Heading wordBreak="break-all">{r.filename}</Heading>
         <Spacer />
         <Badge colorPalette={palette}>{status}</Badge>
-        <IconButton
-          disabled={r.status === 'inProcessing' || r.status === 'inQueue'}
-          onClick={deleteResearch}
-          variant="ghost"
-          size="2xs"
-        >
-          <IconX />
-        </IconButton>
+        <Tooltip positioning={{ placement: 'top' }} showArrow content={t('labels.remove-research-tooltip')}>
+          <IconButton
+            disabled={r.status === 'inProcessing' || r.status === 'inQueue'}
+            onClick={deleteResearch}
+            variant="ghost"
+            size="2xs"
+          >
+            <IconX />
+          </IconButton>
+        </Tooltip>
       </HStack>
       {r.metadata ? (
         <Box>

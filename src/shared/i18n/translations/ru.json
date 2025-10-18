@@ -70,7 +70,9 @@
         "inference-file": "файл",
         "sort-default": "По умолчанию",
         "sort-pathology": "Сначала c патологиями",
-        "upload-time-left": "осталось"
+        "upload-time-left": "осталось",
+        "edit-level-tooltip": "Редактировать порог",
+        "remove-research-tooltip": "Удалить исследование"
       },
       "buttons": {
         "download-xlsx": "Скачать .XLSX",
