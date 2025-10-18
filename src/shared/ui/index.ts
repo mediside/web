@@ -35,3 +35,4 @@ export {
   NumberInput,
   EmptyState,
 } from '@chakra-ui/react'
+export * from './tooltip'
