@@ -36,7 +36,7 @@ export const ResearchCard: FC<ResearchCardProps> = ({ pathologyLevel, research: 
   }
 
   return (
-    <Stack border="solid 2px" borderColor="gray.200" rounded="2xl" px={4} py={2}>
+    <Stack border="solid 2px" borderColor={{ _light: 'gray.200', _dark: 'gray.800' }} rounded="2xl" px={4} py={2}>
       <HStack alignItems="flex-start">
         <Heading wordBreak="break-all">{r.filename}</Heading>
         <Spacer />

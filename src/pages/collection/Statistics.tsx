@@ -19,11 +19,11 @@ export const Statistics: FC<StatisticsProps> = ({ researches, pathologyLevel }) 
     r.probabilityOfPathology === undefined ? false : r.probabilityOfPathology >= pathologyLevel
   ).length
   // TODO: подумать над оптимизацией. Возможно лучше единым циклом сделать
-
+  // TODO: вынести 436px в константу
   return (
-    <Stack flex={1} bg="gray.contrast" p={6} rounded="2xl" shadow="ui">
-      <Heading mb={5}>{t('titles.statistics')}</Heading>
-      <Grid gap={6} templateColumns={{ base: '1fr', xl: '1fr', md: '1fr auto auto 1fr', lg: '1fr' }}>
+    <Stack overflowY="auto" maxH={{ lg: 'calc(100vh - 436px)' }} flex={1} bg="gray.contrast" p={6} rounded="2xl" shadow="ui">
+      <Heading>{t('titles.statistics')}</Heading>
+      <Grid gap={3} templateColumns={{ base: '1fr', xl: '1fr', md: '1fr auto auto 1fr', lg: '1fr' }}>
         <Stack>
           <Heading size="md">{t('titles.statistics-processing')}</Heading>
           <DataList.Root gap={2} orientation="horizontal">

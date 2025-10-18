@@ -10,7 +10,7 @@ type DicomAreaProps = {
 
 export const UploadArea: FC<DicomAreaProps> = ({ collectionId }) => {
   const t = useTranslation('pages.collection')
-  const fileUpload = useFileUpload({ maxFiles: 1000 })
+  const fileUpload = useFileUpload({ maxFiles: 10000 })
   const { info, upload } = useUploadResearches()
 
   useEffect(() => {

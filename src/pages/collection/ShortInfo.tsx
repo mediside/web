@@ -15,14 +15,14 @@ export const ShortInfo: FC<ShortInfoProps> = ({ collection, deleteCollection }) 
         <CollectionTitle num={collection.num} title={collection.title} />
         <Menu.Root>
           <Menu.Trigger asChild>
-            <IconButton variant="ghost" size="sm">
+            <IconButton rounded="xl" variant="ghost" size="sm">
               <IconDots />
             </IconButton>
           </Menu.Trigger>
           <Portal>
             <Menu.Positioner>
-              <Menu.Content>
-                <Menu.Item onClick={deleteCollection} value="delete">
+              <Menu.Content rounded="xl">
+                <Menu.Item rounded="xl" onClick={deleteCollection} value="delete">
                   <Icon size="sm">
                     <IconX />
                   </Icon>
