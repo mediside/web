@@ -26,6 +26,10 @@ export const uploadFilesFx = createEffect(async ({ files, collectionId }: Upload
 
   for (let i = 0; i < files.length; i++) {
     nextFileEvent({ index: i, filename: files[i].name })
+    const exists = await api.checkExists(collectionId, files[i].name)
+    if (exists) {
+      continue // файлы весят много - есть смысл проверять их наличие на сервере перед загрузкой
+    }
     const formData = new FormData()
     formData.append('files', files[i])
     await api.uploadFiles(collectionId, formData, fileProgressEvent)
