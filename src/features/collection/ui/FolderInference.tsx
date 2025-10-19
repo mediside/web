@@ -1,10 +1,11 @@
 import { Button, Code, EmptyState, useFxPending, useTranslation } from '@shared'
 import { useUnit } from 'effector-react'
 import { $currentCollection, runFolderInferenceFx } from '../model'
+import { useUploadResearches } from '@entities'
 
 export const FolderInference: FC = () => {
   const t = useTranslation('features.collection')
-
+  const { upload } = useUploadResearches()
   const c = useUnit($currentCollection)
   const run = useFxPending(runFolderInferenceFx)
 
@@ -19,7 +20,7 @@ export const FolderInference: FC = () => {
       <EmptyState.Description fontSize="xs" color="fg.warning" textAlign="center" maxW={600}>
         {t('paragraphs.run-local-warn')}
       </EmptyState.Description>
-      <Button loading={run.pending} onClick={run.fetch} h="60px" rounded="xl" bg="teal.fg" _hover={{ opacity: 0.9 }}>
+      <Button loading={run.pending} disabled={upload.pending} onClick={run.fetch} h="60px" rounded="xl" bg="teal.fg" _hover={{ opacity: 0.9 }}>
         {t('buttons.run-local')}
       </Button>
     </>
