@@ -18,6 +18,7 @@ import {
 } from '@shared'
 import { ResearchCard } from './ResearchCard'
 import { useState } from 'react'
+import { FolderInference } from '@features'
 
 enum Sort {
   Default = 'default',
@@ -85,15 +86,16 @@ export const ResearchesWithPagination: FC<ResearchesWithPagination> = ({ researc
           ))}
         </Grid>
       ) : (
-        <EmptyState.Root h="full" size="lg">
-          <EmptyState.Content h="full">
+        <EmptyState.Root overflow="auto" h="full" size="lg">
+          <EmptyState.Content h="full" gap={2}>
             <EmptyState.Indicator>
               <IconStack2 />
             </EmptyState.Indicator>
-            <EmptyState.Title>{t('titles.no-researches')}</EmptyState.Title>
+            <EmptyState.Title textAlign="center">{t('titles.no-researches')}</EmptyState.Title>
             <EmptyState.Description textAlign="center" maxW={600}>
               {t('paragraphs.no-researches')}
             </EmptyState.Description>
+            <FolderInference />
           </EmptyState.Content>
         </EmptyState.Root>
       )}

@@ -14,3 +14,5 @@ export const deleteCollection = async (id: string) => {
 }
 
 export const downloadReport = async (id: string) => await api.download(`collections/${id}/report`)
+
+export const runFolderInference = async (id: string) => await api.post(`inference/folder?collection_id=${id}`)

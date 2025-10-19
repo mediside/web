@@ -8,3 +8,4 @@ export {
   updateCollectionFx,
 } from './collections'
 export { downloadReportEvent } from './report'
+export { runFolderInferenceFx } from './inference'

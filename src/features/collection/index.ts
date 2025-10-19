@@ -1,3 +1,3 @@
 export { useCollections, useCurrentCollection } from './hooks'
-export { CollectionTitle } from './ui'
+export { CollectionTitle, FolderInference } from './ui'
 export type { Collection } from './types'
